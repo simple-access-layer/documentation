@@ -1,0 +1,568 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Signal Class &mdash; Simple Access Layer (SAL) 1.2.2 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Simple Access Layer (SAL) 1.2.2 documentation" href="../../index.html"/>
+        <link rel="up" title="Data Classes" href="../dataclasses.html"/>
+        <link rel="prev" title="Array Class" href="array.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Simple Access Layer (SAL)
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.2.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../clients.html">Clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../server.html">Server</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../datamodel.html">Data Model</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../datatree.html">Data Tree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../datatree.html#permissions-tree">Permissions Tree</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../dataclasses.html">Data Classes</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="scalar.html">Scalar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="string.html">String</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dictionary.html">Dictionary Class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="array.html">Array Class</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Signal Class</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#core-class">Core Class</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dimension-classes">Dimension Classes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#error-classes">Error Classes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mask-classes">Mask Classes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Simple Access Layer (SAL)</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../datamodel.html">Data Model</a> &raquo;</li>
+        
+          <li><a href="../dataclasses.html">Data Classes</a> &raquo;</li>
+        
+      <li>Signal Class</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/datamodel/dataclasses/signal.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="signal-class">
+<h1>Signal Class<a class="headerlink" href="#signal-class" title="Permalink to this headline">¶</a></h1>
+<p>Signal with N monotonic dimensions. The signal object is a complex object with nested data classes to define components of the signal: e.g. dimensions, errors, status mask, provenance</p>
+<div class="section" id="core-class">
+<h2>Core Class<a class="headerlink" href="#core-class" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="full-object-definition">
+<h3>Full Object Definition<a class="headerlink" href="#full-object-definition" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default"><div class="highlight"><pre><span></span>object: {
+    _class: string = &quot;signal&quot;
+    _group: string = &quot;signal&quot;
+    _type: string = &quot;object&quot;
+    _version: uint64 = 1
+    description: string = $SIGNAL_DESCRIPTION
+    units: string = $SIGNAL_UNITS
+    dimensions: {
+        count: uint64 = $DIMENSION_COUNT
+        0: signal_dimension = $DIMENSION_0_DATA_OBJECT
+        1: signal_dimension = $DIMENSION_1_DATA_OBJECT
+        .
+        .
+        .
+        $N: signal_dimension = $DIMENSION_N_DATA_OBJECT
+    }
+    data: array&lt;$TYPE&gt; = $DATA
+    [mask: signal_mask = $STATUS_MASK_DATA_OBJECT]
+    [error: signal_error = $ERROR_DATA_OBJECT]
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="summary-object-definition">
+<h3>Summary Object Definition<a class="headerlink" href="#summary-object-definition" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default"><div class="highlight"><pre><span></span>object: {
+    _class: string = &quot;signal&quot;
+    _group: string = &quot;signal&quot;
+    _type: string = &quot;summary&quot;
+    _version: uint64 = 1
+    description: string = $SIGNAL_DESCRIPTION
+    units: string = $SIGNAL_UNITS
+    dimensions: {
+        count: uint64 = $DIMENSION_COUNT
+        0: signal_dimension = $DIMENSION_0_META_OBJECT
+        1: signal_dimension = $DIMENSION_1_META_OBJECT
+        .
+        .
+        .
+        $N: signal_dimension = $DIMENSION_N_META_OBJECT
+    }
+    [mask: signal_mask = $STATUS_MASK_META_OBJECT]
+    [error: signal_error = $ERROR_META_OBJECT]
+}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="dimension-classes">
+<h2>Dimension Classes<a class="headerlink" href="#dimension-classes" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="calculated-dimension">
+<h3>Calculated Dimension<a class="headerlink" href="#calculated-dimension" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id1">
+<h4>Full Object Definition<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default"><div class="highlight"><pre><span></span>object: {
+    _class: string = &quot;dimension_calculated&quot;
+    _group: string = &quot;signal_dimension&quot;
+    _type: string = &quot;object&quot;
+    _version: uint64 = 1
+    description: string = $DESCRIPTION
+    units: string = $UNITS
+    start: fp64 = $START
+    increment: fp64 = $INCREMENT
+    length: uint64 = $DIMENSION_LENGTH
+    temporal: bool = $TIME_DIMENSION
+    [error: signal_error = $ERROR_DATA_OBJECT]
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h4>Summary Object Definition<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default"><div class="highlight"><pre><span></span>object: {
+    _class: string = &quot;dimension_calculated&quot;
+    _group: string = &quot;signal_dimension&quot;
+    _type: string = &quot;summary&quot;
+    _version: uint64 = 1
+    description: string = $DESCRIPTION
+    units: string = $UNITS
+    length: uint64 = $DIMENSION_LENGTH
+    temporal: bool = $TIME_DIMENSION
+    [error: signal_error = $ERROR_META_OBJECT]
+}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="array-dimension-sub-class">
+<h3>Array Dimension Sub-Class<a class="headerlink" href="#array-dimension-sub-class" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id3">
+<h4>Full Object Definition<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default"><div class="highlight"><pre><span></span>object: {
+    _class: string = &quot;dimension_array&quot;
+    _group: string = &quot;signal_dimension&quot;
+    _type: string = &quot;object&quot;
+    _version: uint64 = 1
+    description: string = $DESCRIPTION
+    units: string = $UNITS
+    length: uint64 = $DIMENSION_LENGTH
+    data: array&lt;$TYPE&gt; = $DATA
+    temporal: bool = $TIME_DIMENSION
+    [error: signal_error = $ERROR_DATA_OBJECT]
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h4>Summary Object Definition<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default"><div class="highlight"><pre><span></span>object: {
+    _class: string = &quot;dimension_array&quot;
+    _group: string = &quot;signal_dimension&quot;
+    _type: string = &quot;summary&quot;
+    _version: uint64 = 1
+    description: string = $DESCRIPTION
+    units: string = $UNITS
+    length: uint64 = $DIMENSION_LENGTH
+    temporal: bool = $TIME_DIMENSION
+    [error: signal_error = $ERROR_META_OBJECT]
+}
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="error-classes">
+<h2>Error Classes<a class="headerlink" href="#error-classes" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="constant-error">
+<h3>Constant Error<a class="headerlink" href="#constant-error" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id5">
+<h4>Full Object Definition<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default"><div class="highlight"><pre><span></span>object: {
+    _class: string = &quot;error_constant&quot;
+    _group: string = &quot;signal_error&quot;
+    _type: string = &quot;object&quot;
+    _version: uint64 = 1
+    description: string = &quot;Constant error.&quot;
+    lower: fp64 = $LOWER
+    upper: fp64 = $UPPER
+    relative: boolean = $RELATIVE
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h4>Summary Object Definition<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nb">object</span><span class="p">:</span> <span class="p">{</span>
+    <span class="n">_class</span><span class="p">:</span> <span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;error_constant&quot;</span>
+    <span class="n">_group</span><span class="p">:</span> <span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;signal_error&quot;</span>
+    <span class="n">_type</span><span class="p">:</span> <span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;summary&quot;</span>
+    <span class="n">_version</span><span class="p">:</span> <span class="n">uint64</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">description</span><span class="p">:</span> <span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;Constant error.&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="symmetrical-error-array">
+<h3>Symmetrical Error Array<a class="headerlink" href="#symmetrical-error-array" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id7">
+<h4>Full Object Definition<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default"><div class="highlight"><pre><span></span>object: {
+    _class: string = &quot;error_symmetrical&quot;
+    _group: string = &quot;signal_error&quot;
+    _type: string = &quot;object&quot;
+    _version: uint64 = 1
+    description: string = &quot;Symmetrical error per point.&quot;
+    data: array&lt;$TYPE&gt; = $ERROR_DATA
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="id8">
+<h4>Summary Object Definition<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nb">object</span><span class="p">:</span> <span class="p">{</span>
+    <span class="n">_class</span><span class="p">:</span> <span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;error_symmetrical&quot;</span>
+    <span class="n">_group</span><span class="p">:</span> <span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;signal_error&quot;</span>
+    <span class="n">_type</span><span class="p">:</span> <span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;summary&quot;</span>
+    <span class="n">_version</span><span class="p">:</span> <span class="n">uint64</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">description</span><span class="p">:</span> <span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;Symmetrical error per point.&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="asymmetric-error-array">
+<h3>Asymmetric Error Array<a class="headerlink" href="#asymmetric-error-array" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id9">
+<h4>Full Object Definition<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default"><div class="highlight"><pre><span></span>object: {
+    _class: string = &quot;error_asymmetric&quot;
+    _group: string = &quot;signal_error&quot;
+    _type: string = &quot;object&quot;
+    _version: uint64 = 1
+    description: string = &quot;Asymmetric error per point.&quot;
+    lower: array&lt;$TYPE&gt; = $LOWER_ERROR_DATA
+    upper: array&lt;$TYPE&gt; = $UPPER_ERROR_DATA
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="id10">
+<h4>Summary Object Definition<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nb">object</span><span class="p">:</span> <span class="p">{</span>
+    <span class="n">_class</span><span class="p">:</span> <span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;error_asymmetric&quot;</span>
+    <span class="n">_group</span><span class="p">:</span> <span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;signal_error&quot;</span>
+    <span class="n">_type</span><span class="p">:</span> <span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;summary&quot;</span>
+    <span class="n">_version</span><span class="p">:</span> <span class="n">uint64</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">description</span><span class="p">:</span> <span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;Asymmetric error per point.&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="mask-classes">
+<h2>Mask Classes<a class="headerlink" href="#mask-classes" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="scalar-status-mask">
+<h3>Scalar Status Mask<a class="headerlink" href="#scalar-status-mask" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id11">
+<h4>Full Object Definition<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default"><div class="highlight"><pre><span></span>object: {
+    _class: string = &quot;mask_scalar_status&quot;
+    _group: string = &quot;signal_mask&quot;
+    _type: string = &quot;object&quot;
+    _version: uint64 = 1
+    description: string = &quot;Scalar status mask.&quot;
+    status: uint8 = $STATUS_VALUE
+    key: array&lt;string&gt; = $STATUS_DESCRIPTION_TABLE
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="id12">
+<h4>Summary Object Definition<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nb">object</span><span class="p">:</span> <span class="p">{</span>
+    <span class="n">_class</span><span class="p">:</span> <span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;mask_scalar_status&quot;</span>
+    <span class="n">_group</span><span class="p">:</span> <span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;signal_mask&quot;</span>
+    <span class="n">_type</span><span class="p">:</span> <span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;summary&quot;</span>
+    <span class="n">_version</span><span class="p">:</span> <span class="n">uint64</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">description</span><span class="p">:</span> <span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;Scalar status mask.&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="example">
+<h4>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nb">object</span><span class="p">:</span> <span class="p">{</span>
+    <span class="n">_class</span><span class="p">:</span> <span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;mask_scalar_status&quot;</span>
+    <span class="n">_group</span><span class="p">:</span> <span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;signal_mask&quot;</span>
+    <span class="n">_type</span><span class="p">:</span> <span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;object&quot;</span>
+    <span class="n">_version</span><span class="p">:</span> <span class="n">uint64</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">description</span><span class="p">:</span> <span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;Scalar status mask.&quot;</span>
+    <span class="n">status</span><span class="p">:</span> <span class="n">uint8</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">key</span><span class="p">:</span> <span class="n">array</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;unvalidated&quot;</span><span class="p">,</span> <span class="s2">&quot;good&quot;</span><span class="p">,</span> <span class="s2">&quot;medium&quot;</span><span class="p">,</span> <span class="s2">&quot;poor&quot;</span><span class="p">,</span> <span class="s2">&quot;unusable&quot;</span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="array-status-mask">
+<h3>Array Status Mask<a class="headerlink" href="#array-status-mask" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id13">
+<h4>Full Object Definition<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default"><div class="highlight"><pre><span></span>object: {
+    _class: string = &quot;mask_status_array&quot;
+    _group: string = &quot;signal_mask&quot;
+    _type: string = &quot;object&quot;
+    _version: uint64 = 1
+    description: string = &quot;Array status mask.&quot;
+    status: array&lt;uint8&gt; = $STATUS_VALUES
+    key: array&lt;string&gt; = $STATUS_DESCRIPTION_TABLE
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="id14">
+<h4>Summary Object Definition<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nb">object</span><span class="p">:</span> <span class="p">{</span>
+    <span class="n">_class</span><span class="p">:</span> <span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;mask_status_array&quot;</span>
+    <span class="n">_group</span><span class="p">:</span> <span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;signal_mask&quot;</span>
+    <span class="n">_type</span><span class="p">:</span> <span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;summary&quot;</span>
+    <span class="n">_version</span><span class="p">:</span> <span class="n">uint64</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">description</span><span class="p">:</span> <span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;Array status mask.&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id15">
+<h4>Example<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nb">object</span><span class="p">:</span> <span class="p">{</span>
+    <span class="n">_class</span><span class="p">:</span> <span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;mask_status_array&quot;</span>
+    <span class="n">_group</span><span class="p">:</span> <span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;signal_mask&quot;</span>
+    <span class="n">_type</span><span class="p">:</span> <span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;object&quot;</span>
+    <span class="n">_version</span><span class="p">:</span> <span class="n">uint64</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">description</span><span class="p">:</span> <span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;Array status mask.&quot;</span>
+    <span class="n">status</span><span class="p">:</span> <span class="n">array</span><span class="o">&lt;</span><span class="n">uint8</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
+    <span class="p">]</span>
+    <span class="n">key</span><span class="p">:</span> <span class="n">array</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;unvalidated&quot;</span><span class="p">,</span> <span class="s2">&quot;good&quot;</span><span class="p">,</span> <span class="s2">&quot;medium&quot;</span><span class="p">,</span> <span class="s2">&quot;poor&quot;</span><span class="p">,</span> <span class="s2">&quot;unusable&quot;</span><span class="p">]</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="array.html" class="btn btn-neutral" title="Array Class" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Dr Alex Meakins.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.2.2',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

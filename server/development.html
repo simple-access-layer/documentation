@@ -1,0 +1,610 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Development &mdash; Simple Access Layer (SAL) 1.2.2 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Simple Access Layer (SAL) 1.2.2 documentation" href="../index.html"/>
+        <link rel="up" title="Server" href="../server.html"/>
+        <link rel="next" title="Data Model" href="../datamodel.html"/>
+        <link rel="prev" title="Deployment" href="deployment.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Simple Access Layer (SAL)
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.2.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../clients.html">Clients</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../server.html">Server</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="rest_api.html">REST API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deployment.html">Deployment</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Development</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#principles">Principles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#architecture">Architecture</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#data-requests">Data Requests</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#server-api">Server API</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#persistence-provider">Persistence Provider</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#authentication-provider">Authentication Provider</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#adding-data-classes">Adding Data Classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#future-development">Future Development</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#large-signal-handling">Large Signal Handling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#horizontal-scaling">Horizontal Scaling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#long-operations">Long Operations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#statistics">Statistics</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../datamodel.html">Data Model</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Simple Access Layer (SAL)</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../server.html">Server</a> &raquo;</li>
+        
+      <li>Development</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/server/development.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="development">
+<h1>Development<a class="headerlink" href="#development" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Please contact the Software Engineering Group for more information, this section will be expand as development continues.</p>
+</div>
+<p>Some of the content in this section are just notes, these will be expanded in the future or on request.</p>
+<div class="section" id="principles">
+<h2>Principles<a class="headerlink" href="#principles" title="Permalink to this headline">¶</a></h2>
+<p>Keep it simple!</p>
+<p>Minimise code closer to the data storage - reduce risk of mistakes that could affect all the data. Heavy lifting of data e.g. chunking is handled client side. Also SAL is designed to be managed and developed by a resource limited (skill and/or time) team e.g. a common problem in research organisations.</p>
+<p>Validation before write - data is validated</p>
+<p>Total abstraction of user and storage - keeps user code stable when backend changes, admins have freedom to evolve backend without affecting users.</p>
+<p>Simple to learn - minimal core api, easy to remember, intuitive and symmetrical behaviour - data out is identical to data out.</p>
+</div>
+<div class="section" id="architecture">
+<h2>Architecture<a class="headerlink" href="#architecture" title="Permalink to this headline">¶</a></h2>
+<p>[PICTURE]</p>
+<p>Designed with object stores in mind, data is opaque to storage system and ideally persistence layer</p>
+<p>data classes and validation sit in layer above</p>
+<p>rest api on top</p>
+<p>(server memory is a limit on object size - server does not currently stream validate, instances object on server before passing to persistence layer for serialisation to storage)</p>
+<p>intend large data to be chunked client side where data relationships are understood. Rich clients handle complex inter object behaviours - to minimise code in server core.</p>
+<p>layered</p>
+<p>inverted tree of complexity</p>
+<div class="section" id="data-requests">
+<h3>Data Requests<a class="headerlink" href="#data-requests" title="Permalink to this headline">¶</a></h3>
+<p>The main code path in the server relates to handling data-tree requests. When a client makes a data-tree request the following actions occur on the server:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>if authentication is required, the clients authentication token is inspected:<ul>
+<li>if the token is invalid the request is rejected and the session ends.</li>
+<li>if valid, the users permission groups are requested from the authentication provider.</li>
+</ul>
+</li>
+<li>if the request is to write data:<ul>
+<li>the object is de-serialised and validated</li>
+<li>if the object does not conform to specification the request is rejected and the session ends.</li>
+</ul>
+</li>
+<li>the request is passed to the persistence provider.<ul>
+<li>the persistence provider checks read/write permissions for the client’s group memberships</li>
+<li>the request is rejected if none of the user groups have permission to perform the operation</li>
+<li>data is store/retrieved according to the requested operation</li>
+</ul>
+</li>
+<li>the persistence provider response is serialised and returned to the client.</li>
+</ol>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="server-api">
+<h2>Server API<a class="headerlink" href="#server-api" title="Permalink to this headline">¶</a></h2>
+<p>The persistence and authentication providers are plug-able components of the server. Each provider is a Python class derived from a common base class that defines the relevant interface. To implement a new provider the developer must sub-class the relevant provider base class and provide implementations of the required sections of the interface.</p>
+<p>The provider base classes are described below.</p>
+<div class="section" id="persistence-provider">
+<h3>Persistence Provider<a class="headerlink" href="#persistence-provider" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="sal.server.interface.PersistenceProvider">
+<em class="property">class </em><code class="descclassname">sal.server.interface.</code><code class="descname">PersistenceProvider</code><a class="headerlink" href="#sal.server.interface.PersistenceProvider" title="Permalink to this definition">¶</a></dt>
+<dd><p>Base class for persistence providers.</p>
+<p>A persistence provider must implement the SAL data model. Data is organised
+in a tree structure consisting of branch and leaf nodes. Branch nodes are
+organisational elements that hold references to other branch and leaf nodes
+(their “children”). Leaf nodes hold data. The organisation is much like a
+traditional filesystem.</p>
+<p>Each leaf node holds a single DataObject subclass instance. The system is
+agnostic to the data stored inside the data object and only interacts with
+the base classes.</p>
+<p>Nodes are addressed via a path string, see the path module for the
+construction of a valid path string.</p>
+<p>The persistence provider may implement revisioning and permission handling,
+though these are optional.</p>
+<p>If an internal error occurs in the persistence provider, it must raise an
+InternalError exception.</p>
+<dl class="method">
+<dt id="sal.server.interface.PersistenceProvider.copy">
+<code class="descname">copy</code><span class="sig-paren">(</span><em>target</em>, <em>source</em>, <em>group=None</em><span class="sig-paren">)</span><a class="headerlink" href="#sal.server.interface.PersistenceProvider.copy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Copy the node specified by the source path to the target path location.</p>
+<p>Copy will not create any missing intermediate nodes to the target path,
+these must be created manually before the copy operation is performed.
+These cannot be created automatically as the branch metadata, such as
+the description, cannot be automatically populated.</p>
+<p>If the persistence provider supports permissions, a group id may be
+provided. The operation will be carried out according to the
+permissions of the specified group. The group must have both read and
+delete permission for the source and write permission for the target.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>target</strong> – A target node path.</li>
+<li><strong>source</strong> – A source node path.</li>
+<li><strong>group</strong> – A permission group (default: guest).</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><strong>InvalidPath</strong> – If the supplied path is invalid.</li>
+<li><strong>NodeNotFound</strong> – If the path does not point ot a node.</li>
+<li><strong>PermissionDenied</strong> – If the group does not have permission to access the node.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="sal.server.interface.PersistenceProvider.delete">
+<code class="descname">delete</code><span class="sig-paren">(</span><em>path</em>, <em>group=None</em><span class="sig-paren">)</span><a class="headerlink" href="#sal.server.interface.PersistenceProvider.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete the node specified by the path.</p>
+<p>If a branch node is deleted, all its descendants are also deleted.</p>
+<p>If the persistence provider supports permissions, a group id may be
+provided. The operation will be carried out according to the
+permissions of the specified group.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>path</strong> – A valid node path.</li>
+<li><strong>group</strong> – A permission group (default: guest).</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><strong>InvalidPath</strong> – If the supplied path is invalid.</li>
+<li><strong>NodeNotFound</strong> – If the path does not point ot a node.</li>
+<li><strong>PermissionDenied</strong> – If the group does not have permission to access the node.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="sal.server.interface.PersistenceProvider.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>path</em>, <em>summary=False</em>, <em>group=None</em><span class="sig-paren">)</span><a class="headerlink" href="#sal.server.interface.PersistenceProvider.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns node data for the specific path.</p>
+<p>The object returned depends on the type of node pointed to by the path.
+If the path identifies a branch node, a Branch object is returned. Leaf
+nodes return the data object stored on that node.</p>
+<p>For leaf nodes, users can request the full data object or a reduced
+summary object (containing only the object meta data). If the summary
+argument is set to false (the default) the full data object is
+returned, if true a data summary is returned. The summary argument has
+no effect for branch nodes.</p>
+<p>If the persistence provider supports permissions, a group id may be
+provided. The operation will be carried out according to the
+permissions of the specified group.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>path</strong> – A valid node path.</li>
+<li><strong>summary</strong> – Return a summary object (default: False).</li>
+<li><strong>group</strong> – A permission group (default: guest).</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">A Branch, DataObject or DataSummary object.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><strong>InvalidPath</strong> – If the supplied path is invalid.</li>
+<li><strong>NodeNotFound</strong> – If the path does not point ot a node.</li>
+<li><strong>PermissionDenied</strong> – If the group does not have permission to access the node.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="sal.server.interface.PersistenceProvider.list">
+<code class="descname">list</code><span class="sig-paren">(</span><em>path</em>, <em>group=None</em><span class="sig-paren">)</span><a class="headerlink" href="#sal.server.interface.PersistenceProvider.list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns node meta data for the specific path.</p>
+<p>The object returned depends on the type of node pointed to by the path.
+If the path identifies a branch node, a BranchInfo object is returned.
+For leaf nodes, a LeafInfo object is returned.</p>
+<p>If the persistence provider supports permissions, a group id may be
+provided. The operation will be carried out according to the
+permissions of the specified group.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>path</strong> – A valid node path.</li>
+<li><strong>group</strong> – A permission group (default: guest).</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">A BranchInfo or LeafInfo object.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><strong>InvalidPath</strong> – If the supplied path is invalid.</li>
+<li><strong>NodeNotFound</strong> – If the path does not point ot a node.</li>
+<li><strong>PermissionDenied</strong> – If the group does not have permission to access the node.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="sal.server.interface.PersistenceProvider.put">
+<code class="descname">put</code><span class="sig-paren">(</span><em>path</em>, <em>content</em>, <em>group=None</em><span class="sig-paren">)</span><a class="headerlink" href="#sal.server.interface.PersistenceProvider.put" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates/updates node data at the specific path.</p>
+<p>Put may be used to create or update branch and leaf nodes. Overwriting
+an existing node with new content will update the existing node. In the
+case of a branch node this will update the branch metadata without
+affecting the descendant nodes. Writing a new data object to a leaf
+node will replace the existing data object.</p>
+<p>To create a branch node, a Branch object must be supplied as the put
+content.</p>
+<p>To create a leaf node, a suitable DataObject subclass must be provided.
+A leaf node will be created to encapsulate the DataObject.</p>
+<p>Put will not create any missing intermediate nodes to the target path,
+these must be created manually before the put operation is performed.
+These cannot be created automatically as the branch metadata, such as
+the description, can not be automatically populated.</p>
+<p>If the persistence provider supports permissions, a group id may be
+provided. The operation will be carried out according to the
+permissions of the specified group.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>path</strong> – A valid node path.</li>
+<li><strong>content</strong> – A Branch or DataObject instance.</li>
+<li><strong>group</strong> – A permission group (default: guest).</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><strong>InvalidPath</strong> – If the supplied path is invalid.</li>
+<li><strong>NodeNotFound</strong> – If the path does not point ot a node.</li>
+<li><strong>PermissionDenied</strong> – If the group does not have permission to access the node.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="authentication-provider">
+<h3>Authentication Provider<a class="headerlink" href="#authentication-provider" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="sal.server.interface.AuthenticationProvider">
+<em class="property">class </em><code class="descclassname">sal.server.interface.</code><code class="descname">AuthenticationProvider</code><a class="headerlink" href="#sal.server.interface.AuthenticationProvider" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="sal.server.interface.AuthenticationProvider.authenticate">
+<code class="descname">authenticate</code><span class="sig-paren">(</span><em>username</em>, <em>password</em><span class="sig-paren">)</span><a class="headerlink" href="#sal.server.interface.AuthenticationProvider.authenticate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Authenticates the user using the supplied password.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>username</strong> – Username string.</li>
+<li><strong>password</strong> – Password string.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">True / False</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="sal.server.interface.AuthenticationProvider.required">
+<code class="descname">required</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sal.server.interface.AuthenticationProvider.required" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specifies if authentication is required.</p>
+<p>Where authentication is dependent on the request origin or other
+request property, this method may be implemented to specify if
+authentication is required.</p>
+<p>The default implementation returns True for all requests - all incoming
+requests require authentication. Override this method to implement an
+alternative behaviour.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<p>Must only raise SAL exceptions</p>
+</div>
+</div>
+<div class="section" id="adding-data-classes">
+<h2>Adding Data Classes<a class="headerlink" href="#adding-data-classes" title="Permalink to this headline">¶</a></h2>
+<p>TBD</p>
+<p>Consider a new data class carefully!</p>
+<p>Validation is performed by object instantiation - make sure your object __init__ properly validates the data before it is passed to the persistence layer.</p>
+</div>
+<div class="section" id="future-development">
+<h2>Future Development<a class="headerlink" href="#future-development" title="Permalink to this headline">¶</a></h2>
+<p>The next sections describe future directions along which the SAL server is intended to expand.</p>
+<div class="section" id="large-signal-handling">
+<h3>Large Signal Handling<a class="headerlink" href="#large-signal-handling" title="Permalink to this headline">¶</a></h3>
+<p>The SAL server must have a maximum object size set, to prevent server memory being exhausted by a single requests (note streaming validation may remove this concern). Equally client memory is limited so huge objects can not be set to an arbitrary client. The SAL data system, by design, does not understand the contents of the data classes. It therefore does not know how to intelligently provide ranges of e.g. signal data or frames of videos, it simply returns objects. The reason for this is server simplicity.</p>
+<p>Large objects are defined as objects that may exceed a typical clients memory when a small number are read (at present large objects are ~512MB, so max ~4-5 objects on a windows 4GB machine).</p>
+<p>The plan for large signal handling is to perform client side chunking of the data. For example a LargeSignal class would hold references to multiple Signal objects that hold chunks of the full LargeSignal data range. E.g. a 2D signal of 10Mx10M elements could be chunked as follows:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">path_to_signal</span><span class="o">/</span><span class="n">signalname</span> <span class="o">-&gt;</span> <span class="n">LargeSignal</span> <span class="nb">object</span>
+<span class="n">path_to_signal</span><span class="o">/</span><span class="n">signalname_chunks</span><span class="o">/</span><span class="n">chunk_1_1</span> <span class="o">-&gt;</span> <span class="n">Signal</span> <span class="nb">object</span> <span class="n">holding</span> <span class="n">x</span> <span class="nb">range</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="n">M</span><span class="p">),</span> <span class="n">y</span> <span class="nb">range</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="n">M</span><span class="p">)</span>
+<span class="n">path_to_signal</span><span class="o">/</span><span class="n">signalname_chunks</span><span class="o">/</span><span class="n">chunk_2_1</span> <span class="o">-&gt;</span> <span class="n">Signal</span> <span class="nb">object</span> <span class="n">holding</span> <span class="n">x</span> <span class="nb">range</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="n">M</span><span class="p">:</span><span class="mi">10</span><span class="n">M</span><span class="p">),</span> <span class="n">y</span> <span class="nb">range</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="n">M</span><span class="p">)</span>
+<span class="n">path_to_signal</span><span class="o">/</span><span class="n">signalname_chunks</span><span class="o">/</span><span class="n">chunk_1_2</span> <span class="o">-&gt;</span> <span class="n">Signal</span> <span class="nb">object</span> <span class="n">holding</span> <span class="n">x</span> <span class="nb">range</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="n">M</span><span class="p">),</span> <span class="n">y</span> <span class="nb">range</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="n">M</span><span class="p">:</span><span class="mi">10</span><span class="n">M</span><span class="p">)</span>
+<span class="n">path_to_signal</span><span class="o">/</span><span class="n">signalname_chunks</span><span class="o">/</span><span class="n">chunk_2_2</span> <span class="o">-&gt;</span> <span class="n">Signal</span> <span class="nb">object</span> <span class="n">holding</span> <span class="n">x</span> <span class="nb">range</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="n">M</span><span class="p">:</span><span class="mi">10</span><span class="n">M</span><span class="p">),</span> <span class="n">y</span> <span class="nb">range</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="n">M</span><span class="p">:</span><span class="mi">10</span><span class="n">M</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In essence, the LargeSignal is a descriptor that holds the meta data and units etc… like a Signal, but has a table of chunk descriptions instead of data. The chunks are stored in a branch with the same name as the LargeSignal with e.g. _chunks appended. By relying on this convention, rather than baking the chunk path into the LargeSignal, we avoid needing to rewrite the object contents if the data is moved. I.E. we avoid tight coupling the tree organisation and the internals of the LargeSignal object.</p>
+</div>
+<div class="section" id="horizontal-scaling">
+<h3>Horizontal Scaling<a class="headerlink" href="#horizontal-scaling" title="Permalink to this headline">¶</a></h3>
+<p>Provided a persistence layer uses a locking scheme and revision meta data that is accessible from the backing store, it should be possible to run multiple SAL server instances with the same persistence layer on different hardware nodes. The critical thing is the locking, each server will need to know when it can update the shared resource. This could either be locks stored on the backing store directly (probably inefficient) or a common redis/database instance shared between the SAL head nodes. The performance of the locking server will likely be the limiting factor on the horizontal scaling wrt to writing. Reading (if the data access is carefully designed to be lockless) should be fully scalable.</p>
+</div>
+<div class="section" id="long-operations">
+<h3>Long Operations<a class="headerlink" href="#long-operations" title="Permalink to this headline">¶</a></h3>
+<p>In the future there is a risk that long operations (e.g. large delete of copy operations) may be interrupted by one of more timeouts between the client and server. This may result in the client being unable to track the result of an operation or the server.</p>
+<p>Simply increasing the timeout of various components is not a scalable solution and invariable a timeout will be encountered that may not be in the developer/administrators control.</p>
+<p>The following solution is considered for the future - add a task manager between the REST API and the persistence layer. When a user makes a request, the request triggers the creation of a task that is placed on the task queue. The current state of the queue is visible via a REST api endpoint. Following a request, the server waits for a fixed amount of time for a requested operation to be completed by the persistence layer. If the operation is completed in this time, the server returns the a normal response, as per the current behaviour. If the operation lasts longer than the maximum wait time, the REST API returns a “202 Accepted” status code, a link to the task in the queue endpoint of the REST API and an access token generated for that task. The client can then inspect the queue and wait for the task to be completed.</p>
+<p>Need to consider how to obtain the response of the task - a task result would need to persist for a window of time for the client to obtain. After which the response is deleted? Only the client performing the original operation should have access to the results, hence the access token mentioned above.</p>
+</div>
+<div class="section" id="statistics">
+<h3>Statistics<a class="headerlink" href="#statistics" title="Permalink to this headline">¶</a></h3>
+<p>A separate statistics handler should be implemented - this should be plug-able - that either logs to file, memory, a messaging host etc… depending on the plugin. It will need to be a separate process with a pipe or port via which each server worker process can send data.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../datamodel.html" class="btn btn-neutral float-right" title="Data Model" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="deployment.html" class="btn btn-neutral" title="Deployment" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Dr Alex Meakins.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.2.2',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

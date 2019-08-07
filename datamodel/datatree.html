@@ -1,0 +1,515 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Data Tree &mdash; Simple Access Layer (SAL) 1.2.2 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Simple Access Layer (SAL) 1.2.2 documentation" href="../index.html"/>
+        <link rel="up" title="Data Model" href="../datamodel.html"/>
+        <link rel="next" title="Data Classes" href="dataclasses.html"/>
+        <link rel="prev" title="Data Model" href="../datamodel.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Simple Access Layer (SAL)
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.2.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../clients.html">Clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../server.html">Server</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../datamodel.html">Data Model</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Data Tree</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#nodes">Nodes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#naming">Naming</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#revisions">Revisions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#pathing">Pathing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#data-classes">Data Classes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#types">Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#representations">Representations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#notation">Notation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#common-structure">Common Structure</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#operations">Operations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#list">List</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#get">Get</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#put">Put</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#copy">Copy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#delete">Delete</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#permissions-tree">Permissions Tree</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Operations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">Get</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">Put</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dataclasses.html">Data Classes</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Simple Access Layer (SAL)</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../datamodel.html">Data Model</a> &raquo;</li>
+        
+      <li>Data Tree</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/datamodel/datatree.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="data-tree">
+<h1>Data Tree<a class="headerlink" href="#data-tree" title="Permalink to this headline">¶</a></h1>
+<p>The data stored in SAL is organised in a tree structure, much like a computer file system. This organisational structure is referred to as the data-tree and is constructed from branch and leaf nodes. Branch nodes are the equivalent of folders in a file-system, they are organisational elements and can contain other branches and leaf nodes. Leaf nodes hold data and are the equivalent to files in a file-system.</p>
+<div class="figure align-center" id="id4">
+<a class="reference internal image-reference" href="../_images/datatree.png"><img alt="The SAL data tree." src="../_images/datatree.png" style="width: 587.0px; height: 467.0px;" /></a>
+<p class="caption"><span class="caption-text">The SAL data tree.</span></p>
+</div>
+<p>All the nodes in the data-tree can be given description strings to allow users to document their data directly in the data system.</p>
+<p>The entire data-tree or elements within it may support revisions, allowing users to revise data while maintaining access to historical versions of data stored under a node name.</p>
+<div class="section" id="nodes">
+<h2>Nodes<a class="headerlink" href="#nodes" title="Permalink to this headline">¶</a></h2>
+<p>Data tree nodes are either branch or leaf nodes. All nodes have a name that uniquely identifies them from its siblings in their branch of the data-tree.</p>
+<p>Branch nodes hold a UTF8 description string and a list of child leaf and branch nodes. The node list is modified by the system when the user performs an action on the data-tree such as creating or removing a node. The description is directly configurable by the users.</p>
+<p>Leaf nodes consist of a single instance of a SAL data-class (see <a class="reference internal" href="#data-model-data-classes"><span class="std std-ref">Data Classes</span></a>). Leaf nodes hold two representations of a data-class instance, the full data object and a reduced representation known as a summary object. The summary object is automatically generated from the full object by the system.</p>
+<p>Both branch and leaf nodes may be revisioned (see <a class="reference internal" href="#data-model-revisions"><span class="std std-ref">Revisions</span></a>).</p>
+<div class="section" id="naming">
+<h3>Naming<a class="headerlink" href="#naming" title="Permalink to this headline">¶</a></h3>
+<p>All nodes have a string name. Node names must consist of only the following characters:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">abcdefghijklmnopqrstuvwxyz0123456789</span><span class="o">-</span><span class="n">_</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>To simplify user interaction, the SAL interface is case-insensitive. Upper-case characters are transparently converted to lower-case by the user facing APIs.</p>
+</div>
+<div class="section" id="revisions">
+<span id="data-model-revisions"></span><h3>Revisions<a class="headerlink" href="#revisions" title="Permalink to this headline">¶</a></h3>
+<p>The SAL data model supports the concept of data revisions. Revisioned nodes/trees maintain their entire history of writes and modifications.</p>
+<p>The revision system is modelled on the design of the Subversion version control system. Each revision of the data written to a node is referred to by a revision number. The revision number is an integer that increases as newer data is written. The latest data or <code class="docutils literal"><span class="pre">head</span></code> revision of a node is therefore the revision with the highest number. The earliest revision number in the system is 1. Revision 0 is a special revision that always points to the head revision of the node (see <a class="reference internal" href="#data-model-pathing"><span class="std std-ref">Pathing</span></a>).</p>
+<p>The SAL data model does not prescribe a specific revision system. It is up to the persistence layer implementation how node revisions are handled. The only requirement is that the revision number of an individual node increases as new data is written to the node. This increase does not need to be consecutive.</p>
+<p>Persistence layers may implement:</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Full tree revisioning:</dt>
+<dd><ul class="first last">
+<li>The organisational structure and data are revisioned.</li>
+<li>The revision number is global property of the tree.</li>
+<li>Users can see how the tree looked at any point in history.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Sub-tree revisioning:</dt>
+<dd><ul class="first last">
+<li>As above, but localised to particular sub-tree(s) in the data-tree.</li>
+<li>The revision number is a global property of the sub-tree.</li>
+<li>Typically seen if SAL is being used to wrap existing systems that support only limited forms of revisioning.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Node revisioning:</dt>
+<dd><ul class="first last">
+<li>The organisation of the tree is fixed.</li>
+<li>The revision number is a local property of the node.</li>
+<li>All the nodes are independently revisioned.</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="pathing">
+<span id="data-model-pathing"></span><h2>Pathing<a class="headerlink" href="#pathing" title="Permalink to this headline">¶</a></h2>
+<p>The location of a branch or leaf node in the data-tree is specified using a POSIX filesystem-like path. A path starts with a forward slash, followed by a list of the branch names from the root of the tree to the required node (in order of navigation) separated by forward slashes. An absolute path consisting of a single forward slash refers to the tree root. A typical path for data would look as follows:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">pulse</span><span class="o">/</span><span class="mi">87737</span><span class="o">/</span><span class="n">ppf</span><span class="o">/</span><span class="n">signal</span><span class="o">/</span><span class="n">jetppf</span><span class="o">/</span><span class="n">magn</span><span class="o">/</span><span class="n">ipla</span>
+</pre></div>
+</div>
+<p>Each node in the data-tree can have multiple revisions, by default only the most recent or head revision is visible. To obtain a specific node revision, a colon followed by the revision number are appended to the node path. For instance:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">pulse</span><span class="o">/</span><span class="mi">87737</span><span class="o">/</span><span class="n">ppf</span><span class="o">/</span><span class="n">signal</span><span class="o">/</span><span class="n">jetppf</span><span class="o">/</span><span class="n">magn</span><span class="o">/</span><span class="n">ipla</span><span class="p">:</span><span class="mi">23</span>
+</pre></div>
+</div>
+<p>This path points to revision 23 of the <code class="docutils literal"><span class="pre">ipla</span></code> leaf node. For users that desire to be explicit about specifying the head revision, this can be referred to using either <code class="docutils literal"><span class="pre">&lt;path&gt;:0</span></code> or <code class="docutils literal"><span class="pre">&lt;path&gt;:head</span></code>.</p>
+</div>
+<div class="section" id="data-classes">
+<span id="data-model-data-classes"></span><h2>Data Classes<a class="headerlink" href="#data-classes" title="Permalink to this headline">¶</a></h2>
+<p>The data stored on leaf nodes are known as data objects. These are discrete bundles of data conforming to one of a number of pre-defined structures known as data classes. Each leaf node contains a single data object. Users can request either the full data object or a reduced summary object that contains only the meta-data.</p>
+<p>Data classes are intended to represent a particular type of data, such as time traces, camera images or 3D meshes. Data classes are validated server side to ensure consistency of the data. See <a class="reference internal" href="dataclasses.html#data-classes"><span class="std std-ref">Data Classes</span></a> for the concrete definition of the data classes provided by SAL.</p>
+<p>A data object is a tree structure consisting of branch and leaf nodes, much like the data tree. The leave nodes are values of atomic types or containers of values that are representable in all modern programing languages. Each node is named and follows the same conventions as the data tree, names are limited to the following characters:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">abcdefghijklmnopqrstuvwxyz0123456789</span><span class="o">-</span><span class="n">_</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>A set of names are reserved for use by the SAL system (see <a class="reference internal" href="#data-model-common-structure"><span class="std std-ref">Common Structure</span></a>)</p>
+<div class="section" id="types">
+<h3>Types<a class="headerlink" href="#types" title="Permalink to this headline">¶</a></h3>
+<p>All data class structures are built from the following basic types.</p>
+<p><strong>Atomic</strong></p>
+<ul class="simple">
+<li>Signed integer: <code class="docutils literal"><span class="pre">int8</span></code>, <code class="docutils literal"><span class="pre">int16</span></code>, <code class="docutils literal"><span class="pre">int32</span></code>, <code class="docutils literal"><span class="pre">int64</span></code></li>
+<li>Unsigned integer: <code class="docutils literal"><span class="pre">uint8</span></code>, <code class="docutils literal"><span class="pre">uint16</span></code>, <code class="docutils literal"><span class="pre">uint32</span></code>, <code class="docutils literal"><span class="pre">uint64</span></code></li>
+<li>Floating point: <code class="docutils literal"><span class="pre">fp32</span></code>, <code class="docutils literal"><span class="pre">fp64</span></code></li>
+<li>Boolean: <code class="docutils literal"><span class="pre">bool</span></code></li>
+<li>String: <code class="docutils literal"><span class="pre">string</span></code></li>
+</ul>
+<p>Strings are encoded as UTF8.</p>
+<p><strong>Container</strong></p>
+<ul class="simple">
+<li>N dimensional array: <code class="docutils literal"><span class="pre">array&lt;TYPE&gt;</span></code></li>
+</ul>
+<p>Where array type is any one of the atomic types.</p>
+<ul class="simple">
+<li>Branch: <code class="docutils literal"><span class="pre">branch</span></code> / <code class="docutils literal"><span class="pre">{}</span></code></li>
+</ul>
+<p>The branch type is equivalent to a Python dictionary with string keys.</p>
+<p><strong>Special</strong></p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">null</span></code></li>
+</ul>
+<p>When an attribute is labelled as optional, <code class="docutils literal"><span class="pre">null</span></code> is used inplace of missing content.</p>
+</div>
+<div class="section" id="representations">
+<h3>Representations<a class="headerlink" href="#representations" title="Permalink to this headline">¶</a></h3>
+<p>Data classes are defined by specifying the two representations of the data object - the full data object and it’s associated summary object.</p>
+<p>The full object is the complete data class containing all data. These objects can potentially be very large when fully populated with data (&gt;100MB).</p>
+<p>The summary object has the same tree structure as the full object except the nodes containing the bulk data are either removed or replaced with a reduced representation. The purpose of the summary object is to allow users to interrogate the available data without needing to pull down the whole object. Summary objects must remain small (~1kB) as the user will potentially pull down many summary objects before deciding to download a full data object.</p>
+</div>
+<div class="section" id="notation">
+<h3>Notation<a class="headerlink" href="#notation" title="Permalink to this headline">¶</a></h3>
+<p>To define data classes in this document we use the following notation.</p>
+<p>Objects:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>object: {
+    $CONTENTS
+}
+</pre></div>
+</div>
+<p>Branches:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$NAME: {
+    $CONTENTS
+}
+</pre></div>
+</div>
+<p>Atomic types:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$NAME: $TYPE = $CONTENTS
+</pre></div>
+</div>
+<p>Arrays:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$NAME: array&lt;$TYPE&gt; = $CONTENTS
+</pre></div>
+</div>
+<p>An attribute that is considered optional is enclosed with square brackets:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>[$NAME: $TYPE = $CONTENT]
+</pre></div>
+</div>
+</div>
+<div class="section" id="common-structure">
+<span id="data-model-common-structure"></span><h3>Common Structure<a class="headerlink" href="#common-structure" title="Permalink to this headline">¶</a></h3>
+<p>Both the full object and the summary objects share a common structure around which the data class is defined. This structure defines a class name, a group the class belongs to, whether the object is a full or summary object, its version, and finally a text description string:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>object: {
+    _class: string = $CLASS_NAME
+    _group: string = $GROUP_NAME
+    _type: string = $OBJECT_TYPE
+    _version: uint64 = $CLASS_VERSION
+    description: string = $DOC_STRING
+}
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>CLASS_NAME</dt>
+<dd>The string that identifies the data class (e.g. scalar, dictionary, signal). The name must conform to the same character list as the node names.</dd>
+<dt>GROUP_NAME</dt>
+<dd>The string that identifies the group this data class belongs to (e.g. core, signal). The name must conform to the same character list as the node names.</dd>
+<dt>OBJECT_TYPE</dt>
+<dd>Defines if this object is a full object or a summary object. Can only be set to the strings ‘full’ or ‘summary’.</dd>
+<dt>CLASS_VERSION</dt>
+<dd>This is the version of the data class definition.</dd>
+<dt>DOC_STRING</dt>
+<dd>A human readable description of the object contents. All objects in SAL must have a description.</dd>
+</dl>
+<p>All underscored attributes must be populated by the developer when defining a new class. The description attribute is populated by the user when they create a data object along side other attributes in the class.</p>
+<p>Data classes belong to a group. The intention behind the grouping is to aid user understanding by grouping together objects that have similar properties and/or concepts. However, please note that this is not a formal object system, there is no enforcement of sub-classing.</p>
+<p>All data classes must be versioned if any attributes change, particularly if that change is incompatible with the previous version. This is to ensure that client side software can easily detect and handle changes to object definitions. If a change occurs the version number must be incremented.</p>
+<p>Data class attributes may be optional. An optional attribute will still appear in the object but the contents will take a null value if the attribute is unused.</p>
+<p>See <a class="reference internal" href="dataclasses.html#data-classes"><span class="std std-ref">Data Classes</span></a> for concrete data class definitions.</p>
+</div>
+</div>
+<div class="section" id="operations">
+<h2>Operations<a class="headerlink" href="#operations" title="Permalink to this headline">¶</a></h2>
+<p>The following operations are defined for the data-tree.</p>
+<div class="section" id="list">
+<h3>List<a class="headerlink" href="#list" title="Permalink to this headline">¶</a></h3>
+<p>Returns node meta data at the specific path.</p>
+<p>The data returned depends on the type of node pointed to by the path.</p>
+<p>For branch nodes the following attributes are returned:</p>
+<blockquote>
+<div><ul class="simple">
+<li>the description</li>
+<li>the list of child branch nodes</li>
+<li>the list of child leaf nodes with associated data object id data i.e. class, group, version</li>
+<li>head revision number</li>
+<li>returned revision number</li>
+<li>list of all available revision numbers</li>
+</ul>
+</div></blockquote>
+<p>For leaf nodes the following attributes are returned:</p>
+<blockquote>
+<div><ul class="simple">
+<li>the description</li>
+<li>the data object id data: class, group, version</li>
+<li>head revision number</li>
+<li>returned revision number</li>
+<li>list of all available revision numbers</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="get">
+<h3>Get<a class="headerlink" href="#get" title="Permalink to this headline">¶</a></h3>
+<p>Returns node data for the specific path.</p>
+<p>The data returned depends on the type of node pointed to by the path.</p>
+<p>For branch nodes the description attribute is returned.</p>
+<p>For leaf nodes the data object is returned. The user can request either the summary representation or full representation of the data object.</p>
+</div>
+<div class="section" id="put">
+<h3>Put<a class="headerlink" href="#put" title="Permalink to this headline">¶</a></h3>
+<p>Creates or updates branch and leaf nodes on the specific path.</p>
+<p>A new node can only be created as a descendant of an existing branch node. To create a branch node a node name and a description must be supplied. To create a leaf node a node name and data object must be supplied.</p>
+<p>Overwriting an existing branch node with a branch will update the node description without affecting the descendant nodes - the children will remain in place. All other operations will result in the original node being replaced by the new node.</p>
+</div>
+<div class="section" id="copy">
+<h3>Copy<a class="headerlink" href="#copy" title="Permalink to this headline">¶</a></h3>
+<p>Copies the sub-tree specified by the source path to the target path location.</p>
+<p>The destination sub-tree will be entirely replaced with the source sub-tree.</p>
+</div>
+<div class="section" id="delete">
+<h3>Delete<a class="headerlink" href="#delete" title="Permalink to this headline">¶</a></h3>
+<p>Delete the entire sub-tree specified by the path.</p>
+</div>
+</div>
+</div>
+<div class="section" id="permissions-tree">
+<h1>Permissions Tree<a class="headerlink" href="#permissions-tree" title="Permalink to this headline">¶</a></h1>
+<p>A persistence layer may support the ability to set access permissions on object in the data-tree. Where this is implemented, a parallel permissions tree will be accessible. The organisation of the permissions tree mirrors the head revision of the data tree hierarchy.</p>
+<div class="section" id="id1">
+<h2>Operations<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>The following operations are defined for the permissions-tree.</p>
+<div class="section" id="id2">
+<h3>Get<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id3">
+<h3>Put<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="dataclasses.html" class="btn btn-neutral float-right" title="Data Classes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../datamodel.html" class="btn btn-neutral" title="Data Model" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Dr Alex Meakins.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.2.2',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

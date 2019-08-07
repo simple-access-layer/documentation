@@ -1,0 +1,1229 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>REST API &mdash; Simple Access Layer (SAL) 1.2.2 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Simple Access Layer (SAL) 1.2.2 documentation" href="../index.html"/>
+        <link rel="up" title="Server" href="../server.html"/>
+        <link rel="next" title="Deployment" href="deployment.html"/>
+        <link rel="prev" title="Server" href="../server.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Simple Access Layer (SAL)
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.2.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../clients.html">Clients</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../server.html">Server</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">REST API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#making-requests">Making Requests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#failed-requests">Failed Requests</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sal-exceptions">SAL Exceptions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#authentication">Authentication</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#obtaining-an-authorisation-token">Obtaining an Authorisation Token</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#authenticating-requests">Authenticating Requests</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#inspecting-server">Inspecting Server</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">Request</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">Success Response</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#data-tree-operations">Data Tree Operations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#data-object-encoding">Data Object Encoding</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#list-node-contents">List Node Contents</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#get-node-objects">Get Node Objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#put-branch-node">Put Branch Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#put-leaf-node">Put Leaf Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#copy-existing-node">Copy Existing Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#delete-node">Delete Node</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#permission-tree-operations">Permission Tree Operations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="deployment.html">Deployment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development.html">Development</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../datamodel.html">Data Model</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Simple Access Layer (SAL)</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../server.html">Server</a> &raquo;</li>
+        
+      <li>REST API</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/server/rest_api.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="rest-api">
+<span id="id1"></span><h1>REST API<a class="headerlink" href="#rest-api" title="Permalink to this headline">¶</a></h1>
+<p>Client interactions with the data server are performed by via the SAL REST-like HTTP API.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><strong>The current API version is 2.</strong></p>
+</div>
+<p>Before reading this specification, readers should be familiar with the SAL <a class="reference internal" href="../datamodel.html#data-model"><span class="std std-ref">Data Model</span></a>, the JSON data format and have a rudimentary understanding of the Hypertext Transfer Protocol (HTTP).</p>
+<div class="section" id="making-requests">
+<h2>Making Requests<a class="headerlink" href="#making-requests" title="Permalink to this headline">¶</a></h2>
+<p>To make an HTTP request you will need to identify a suitable HTTP library or tool to make HTTP requests e.g. the python requests package or the c/c++ curl library.</p>
+<p>To interact with the server an HTTP request is constructed. The request describes the operation to be performed by the server, such as creating a node or requesting data. If the request is valid, the server will carry out the appropriate action and an HTTP response will be returned. The specific request-response behaviour of the server for each operation will be described in the later sections of this document.</p>
+</div>
+<div class="section" id="failed-requests">
+<h2>Failed Requests<a class="headerlink" href="#failed-requests" title="Permalink to this headline">¶</a></h2>
+<p>To simplify error handling across the API, a common failure response is returned if a request fails. The response will include the following contents:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Status</span> <span class="n">Code</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">STATUS</span><span class="o">&gt;</span>
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span> <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+
+<span class="p">{</span>
+  <span class="n">message</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">MESSAGE</span><span class="o">&gt;</span><span class="p">,</span>
+  <span class="n">status</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">STATUS</span><span class="o">&gt;</span><span class="p">,</span>
+  <span class="n">exception</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">EXCEPTION</span><span class="o">&gt;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The values returned in the response body are as follows:</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal"><span class="pre">STATUS</span></code>: A relevant HTTP status code, e.g. 404 Not Found</li>
+<li><code class="docutils literal"><span class="pre">MESSAGE</span></code>: A text string describing the reason for the failure.</li>
+<li><code class="docutils literal"><span class="pre">EXCEPTION</span></code>: A text string specifying the exception raised on the server by the failed request.</li>
+</ul>
+</div></blockquote>
+<p>For example the following failure response is returned if the user requests a data node that does not exist:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Status</span> <span class="n">Code</span><span class="p">:</span> <span class="mi">404</span> <span class="n">Not</span> <span class="n">Found</span>
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span> <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+
+<span class="p">{</span>
+  <span class="n">message</span><span class="p">:</span> <span class="s2">&quot;The supplied path does not point to a valid node.&quot;</span><span class="p">,</span>
+  <span class="n">status</span><span class="p">:</span> <span class="mi">404</span><span class="p">,</span>
+  <span class="n">exception</span><span class="p">:</span> <span class="s2">&quot;NodeNotFound&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="sal-exceptions">
+<h3>SAL Exceptions<a class="headerlink" href="#sal-exceptions" title="Permalink to this headline">¶</a></h3>
+<p>[detail exceptions]</p>
+</div>
+</div>
+<div class="section" id="authentication">
+<span id="rest-api-authentication"></span><h2>Authentication<a class="headerlink" href="#authentication" title="Permalink to this headline">¶</a></h2>
+<p>The SAL server supports optional authentication. SAL uses token based authentication. Tokens are acquired by providing login credentials (username and password) to an <code class="docutils literal"><span class="pre">/auth</span></code> endpoint. Typically a token is time limited and will need to be renewed if the token expires. The token lifetime is configured by the administrator of the server.</p>
+<div class="section" id="obtaining-an-authorisation-token">
+<h3>Obtaining an Authorisation Token<a class="headerlink" href="#obtaining-an-authorisation-token" title="Permalink to this headline">¶</a></h3>
+<p>This <code class="docutils literal"><span class="pre">/auth</span></code> endpoint is only available if the SAL server requires authentication to access data. Where authentication is required, users must post their credentials to this endpoint to obtain an authorisation token. This token must be provided as part of the request when interacting with endpoints requiring authentication.</p>
+<div class="section" id="request">
+<h4>Request<a class="headerlink" href="#request" title="Permalink to this headline">¶</a></h4>
+<p>To authenticate, the client must provide user credentials via HTTP Basic Authentication. The request should take the following form:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">GET</span> <span class="o">/</span><span class="n">auth</span> <span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
+<span class="n">Host</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">SERVER</span><span class="o">&gt;</span>
+<span class="n">Authorization</span><span class="p">:</span> <span class="n">Basic</span> <span class="o">&lt;</span><span class="n">ENCODED_DATA</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Headers:</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal"><span class="pre">Authorization</span></code>: A string constructed according to the HTTP Basic Authentication specification (see below).</li>
+</ul>
+</div></blockquote>
+<p>The contents of the <code class="docutils literal"><span class="pre">Authorization</span></code> header must be constructed as follows:</p>
+<blockquote>
+<div><ul class="simple">
+<li>The username and password are combined with a single colon (:).</li>
+<li>The resulting string is encoded using Base64.</li>
+<li>The string <cite>Basic</cite> is then prepended to the encoded string, separated with a space.</li>
+</ul>
+</div></blockquote>
+<p>For example, if the browser uses <code class="docutils literal"><span class="pre">Aladdin</span></code> as the username and <code class="docutils literal"><span class="pre">OpenSesame</span></code> as the password, then the field’s value is the base64-encoding of <code class="docutils literal"><span class="pre">Aladdin:OpenSesame</span></code>, or <code class="docutils literal"><span class="pre">QWxhZGRpbjpPcGVuU2VzYW1l</span></code>. Then the Authorization header will appear as:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Authorization</span><span class="p">:</span> <span class="n">Basic</span> <span class="n">QWxhZGRpbjpPcGVuU2VzYW1l</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="success-response">
+<h4>Success Response<a class="headerlink" href="#success-response" title="Permalink to this headline">¶</a></h4>
+<p>If the authentication request is successful a response will be generated including the following contents:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Status</span> <span class="n">Code</span><span class="p">:</span> <span class="mi">200</span> <span class="n">OK</span>
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span> <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+
+<span class="p">{</span>
+    <span class="s1">&#39;authorisation&#39;</span><span class="p">:</span>
+    <span class="p">{</span>
+        <span class="s1">&#39;user&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">USERNAME</span><span class="o">&gt;</span>
+        <span class="s1">&#39;token&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">TOKEN</span><span class="o">&gt;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="failure-response">
+<h4>Failure Response<a class="headerlink" href="#failure-response" title="Permalink to this headline">¶</a></h4>
+<p>If the authentication request fails a response will be generated including the following contents:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Status</span> <span class="n">Code</span><span class="p">:</span> <span class="mi">401</span> <span class="n">Unauthorized</span>
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span> <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+
+<span class="p">{</span>
+  <span class="n">message</span><span class="p">:</span> <span class="s2">&quot;Authentication failed.&quot;</span><span class="p">,</span>
+  <span class="n">status</span><span class="p">:</span> <span class="mi">401</span><span class="p">,</span>
+  <span class="n">exception</span><span class="p">:</span> <span class="s2">&quot;AuthenticationFailed&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="authenticating-requests">
+<h3>Authenticating Requests<a class="headerlink" href="#authenticating-requests" title="Permalink to this headline">¶</a></h3>
+<p>On a server that requires authentication the user must supply an authentication token that is obtained from the auth endpoint (see <a class="reference internal" href="#rest-api-authentication"><span class="std std-ref">Authentication</span></a>). There is a common pattern for authenticating all data tree requests. To authenticate a request the user must pass a token either via a query argument or via a request header. The choice of which method is used is up to the user.</p>
+<p>To pass the token via a query argument, the query string <code class="docutils literal"><span class="pre">auth=&lt;TOKEN&gt;</span></code> should be added to the url. For example:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>GET /data/node/path?auth=eyJhbGciOiJIUzI1NiIXVCJ9...TJVA95OrM7E20RMHrHDcEfxjoYZgeFONFh7HgQ
+</pre></div>
+</div>
+<p>Alternatively, to pass the token directly via the request, the user must add the header as follows</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Authorization</span><span class="p">:</span> <span class="n">Bearer</span> <span class="o">&lt;</span><span class="n">TOKEN</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>For example:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Authorization</span><span class="p">:</span> <span class="n">Bearer</span> <span class="n">eyJhbGciOiJIUzI1NiIXVCJ9</span><span class="o">...</span><span class="n">TJVA95OrM7E20RMHrHDcEfxjoYZgeFONFh7HgQ</span>
+</pre></div>
+</div>
+<p>If a valid token is not supplied, the request will fail and a response will be generated including the following contents:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Status</span> <span class="n">Code</span><span class="p">:</span> <span class="mi">403</span> <span class="n">Forbidden</span>
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span> <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+
+<span class="p">{</span>
+  <span class="n">message</span><span class="p">:</span> <span class="s2">&quot;Access denied.&quot;</span><span class="p">,</span>
+  <span class="n">status</span><span class="p">:</span> <span class="mi">403</span><span class="p">,</span>
+  <span class="n">exception</span><span class="p">:</span> <span class="s2">&quot;PermissionDenied&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="inspecting-server">
+<h2>Inspecting Server<a class="headerlink" href="#inspecting-server" title="Permalink to this headline">¶</a></h2>
+<p>The server settings and properties are available from the server root.</p>
+<p>At the start of a session, clients should inspect the server API version to ensure the server and client are using the same version of the API. The authentication requirements for the server are also available via this endpoint.</p>
+<div class="section" id="id2">
+<h3>Request<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>The request should take the following form:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">GET</span> <span class="o">/</span> <span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
+<span class="n">Host</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">SERVER</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>The root endpoint does not require authentication.</p>
+</div>
+<div class="section" id="id3">
+<h3>Success Response<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>If a successful request is made, the server will return a response including the following contents:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Status</span> <span class="n">Code</span><span class="p">:</span> <span class="mi">200</span> <span class="n">OK</span>
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span> <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+
+<span class="p">{</span>
+  <span class="s2">&quot;host&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">HOST</span><span class="o">&gt;</span><span class="p">,</span>
+  <span class="s2">&quot;api&quot;</span><span class="p">:</span>
+  <span class="p">{</span>
+    <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">REST_API_VERSION</span><span class="o">&gt;</span>
+    <span class="s2">&quot;requires_auth&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">AUTHENTICATED</span><span class="o">&gt;</span><span class="p">,</span>
+    <span class="s2">&quot;resources&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">LIST</span> <span class="n">OF</span> <span class="n">RESOURCE</span> <span class="n">ENDPOINTS</span><span class="o">&gt;</span><span class="p">,</span>
+    <span class="s2">&quot;classes&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">DICTIONARY</span> <span class="n">DESCRIBING</span> <span class="n">DATA</span> <span class="n">CLASSES</span><span class="o">&gt;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;service&quot;</span><span class="p">:</span>
+  <span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Simple Access Layer (SAL) Server&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">SERVER</span> <span class="n">VERSION</span><span class="o">&gt;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;request&quot;</span><span class="p">:</span>
+  <span class="p">{</span>
+    <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">REQUEST_URL</span><span class="o">&gt;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="data-tree-operations">
+<h2>Data Tree Operations<a class="headerlink" href="#data-tree-operations" title="Permalink to this headline">¶</a></h2>
+<p>The following operations are used to obtain data from, or modify the contents of the data tree.</p>
+<p>Where operations return data about the data-tree, the response follows a common pattern and will contain the following structure:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Status</span> <span class="n">Code</span><span class="p">:</span> <span class="mi">200</span> <span class="n">OK</span>
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span> <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+
+<span class="p">{</span>
+  <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">CONTENT_TYPE</span><span class="o">&gt;</span><span class="p">,</span>
+  <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">NODE_TYPE</span><span class="o">&gt;</span><span class="p">,</span>
+  <span class="s2">&quot;object&quot;</span><span class="p">:</span>
+  <span class="p">{</span>
+    <span class="o">&lt;</span><span class="n">OBJECT</span><span class="o">&gt;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;request&quot;</span><span class="p">:</span>
+  <span class="p">{</span>
+    <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">REQUEST_URL</span><span class="o">&gt;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal"><span class="pre">CONTENT_TYPE</span></code> takes the values <code class="docutils literal"><span class="pre">report</span></code> or <code class="docutils literal"><span class="pre">object</span></code>. A report describes the contents of the node. An object response contains the node contents as a JSON encoded object.</p>
+<p>The <code class="docutils literal"><span class="pre">type</span></code> attribute specifies whether the response is describing a branch or leaf node. <code class="docutils literal"><span class="pre">NODE_TYPE</span></code> will take the values <code class="docutils literal"><span class="pre">branch</span></code> or <code class="docutils literal"><span class="pre">leaf</span></code> respectively.</p>
+<p>The <code class="docutils literal"><span class="pre">object</span></code> attribute will contain the report contents or an encoded data object.</p>
+<div class="section" id="data-object-encoding">
+<span id="rest-api-encoding"></span><h3>Data Object Encoding<a class="headerlink" href="#data-object-encoding" title="Permalink to this headline">¶</a></h3>
+<p>Data class structures contain data types that are not directly representable in JSON. For instance JSON has no native <code class="docutils literal"><span class="pre">int8</span></code> type, only a generic <code class="docutils literal"><span class="pre">number</span></code> type that represents both integer and floating point numbers as strings. Data types sent via JSON are automatically promoted to the closest JSON type. To ensure the data class structures are correctly transported and the type information can be recovered, the data class structures are encoded before transmission via json.</p>
+<p>The original type is store alongside the JSON type promoted data. The different SAL data class types are represented as follows.</p>
+<div class="section" id="branches">
+<h4>Branches:<a class="headerlink" href="#branches" title="Permalink to this headline">¶</a></h4>
+<p>Branch types are represented with the following JSON structure:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;branch&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;value: {</span>
+     <span class="o">&lt;</span><span class="n">CHILD_STRUCTURE</span><span class="o">&gt;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal"><span class="pre">CHILD_STRUCTURE</span></code> contains the JSON representing the contents of the branch.</p>
+</div>
+<div class="section" id="atomic-types">
+<h4>Atomic Types<a class="headerlink" href="#atomic-types" title="Permalink to this headline">¶</a></h4>
+<p>Atomic types are represented with the following JSON structure:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">TYPE</span><span class="o">&gt;</span><span class="p">,</span>
+  <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">VALUE</span><span class="o">&gt;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Where:</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal"><span class="pre">TYPE</span></code>: The original atomic data type name.</li>
+<li><code class="docutils literal"><span class="pre">VALUE</span></code>: The atomic value promoted to the appropriate JSON type.</li>
+</ul>
+</div></blockquote>
+<p>The atomic types, their string identifiers and the JSON type the value is promoted to are as follows:</p>
+<table border="1" class="colwidths-auto docutils">
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Data Type</th>
+<th class="head">ID String</th>
+<th class="head">JSON Type</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">uint8</span></code> / <code class="docutils literal"><span class="pre">uint16</span></code> / <code class="docutils literal"><span class="pre">uint32</span></code> / <code class="docutils literal"><span class="pre">uint64</span></code></td>
+<td>“uint8” / “uint16” / “uint32” / “uint64”</td>
+<td>Number</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">int8</span></code> / <code class="docutils literal"><span class="pre">int16</span></code> / <code class="docutils literal"><span class="pre">int32</span></code> / <code class="docutils literal"><span class="pre">int64</span></code></td>
+<td>“int8” / “int16” / “int32” / “int64”</td>
+<td>Number</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">float32</span></code> / <code class="docutils literal"><span class="pre">float64</span></code></td>
+<td>“float32” / “float64”</td>
+<td>Number</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">bool</span></code></td>
+<td>“bool”</td>
+<td>Number</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">string</span></code></td>
+<td>“string”</td>
+<td>String</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="arrays">
+<h4>Arrays<a class="headerlink" href="#arrays" title="Permalink to this headline">¶</a></h4>
+<p>Except for lists of strings, arrays of data are not mapped directly to equivalent JSON types. Numerical array data is computationally inefficient to process if represented as lists of strings. To avoid this cost on the client and server, the raw data arrays are encoded using BASE64 into a single JSON string. BASE64 encoding/decoding is extremely fast compared to decoding number strings.</p>
+<p>Arrays consisting of atomic types excluding strings are represented as follows:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;array&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;value&quot;</span><span class="p">:</span>
+  <span class="p">{</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">TYPE</span><span class="o">&gt;</span><span class="p">,</span>
+    <span class="s2">&quot;shape&quot;</span><span class="p">:</span> <span class="p">[</span><span class="o">&lt;</span><span class="n">SHAPE</span><span class="o">&gt;</span><span class="p">],</span>
+    <span class="s2">&quot;encoding&quot;</span><span class="p">:</span> <span class="s2">&quot;base64&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">BASE64_DATA</span><span class="o">&gt;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Where:</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal"><span class="pre">TYPE</span></code>: The type ID for the data type.</li>
+<li><code class="docutils literal"><span class="pre">SHAPE</span></code>: A list defining the shape of the data array.</li>
+<li><code class="docutils literal"><span class="pre">BASE64_DATA</span></code>: BASE64 encoded array data.</li>
+</ul>
+</div></blockquote>
+<p>The data consists of a contiguous array of bytes with c-ordering for multi-dimensional arrays. The byte order is little endian. This is encoded with BASE64 to produce a JSON compatible string representation.</p>
+<p>Arrays of strings are handled differently as the elements of the arrays are already in string form and therefore do not require conversion:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;array&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;value&quot;</span><span class="p">:</span>
+  <span class="p">{</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;shape&quot;</span><span class="p">:</span> <span class="p">[</span><span class="o">&lt;</span><span class="n">SHAPE</span><span class="o">&gt;</span><span class="p">],</span>
+    <span class="s2">&quot;encoding&quot;</span><span class="p">:</span> <span class="s2">&quot;list&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">[</span><span class="o">&lt;</span><span class="n">STRING_DATA</span><span class="o">&gt;</span><span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Where:</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal"><span class="pre">SHAPE</span></code>: A list defining the shape of the data array.</li>
+<li><code class="docutils literal"><span class="pre">STRING_DATA</span></code>: Nested lists of strings.</li>
+</ul>
+</div></blockquote>
+<p>Multidimensional string arrays consist of nested lists with the same index ordering as a c-style multi-dimensional array.</p>
+</div>
+<div class="section" id="optional-attributes">
+<h4>Optional Attributes<a class="headerlink" href="#optional-attributes" title="Permalink to this headline">¶</a></h4>
+<p>Where an attribute is specified as optional in the data class definition that attribute may take a null value i.e. it contains no data. This is represented in JSON using by a <code class="docutils literal"><span class="pre">null</span></code> JSON type:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">ATTRIBUTE_NAME</span><span class="o">&gt;</span><span class="p">:</span> <span class="n">null</span>
+</pre></div>
+</div>
+<p>Where:</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal"><span class="pre">ATTRIBUTE_NAME</span></code>: Is the name of the optional attribute.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="examples">
+<h4>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h4>
+<p>The following data object structure will be serialised in the example (see <a class="reference internal" href="../datamodel.html#data-model"><span class="std std-ref">Data Model</span></a> for information on data class specifications):</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>object:
+  {
+  _class: string = &quot;example_class&quot;
+  _group: string = &quot;example_group&quot;
+  _type: string = &quot;object&quot;
+  _version: uint64 = 1
+  description: string = &quot;An example data object.&quot;
+  float-data: array&lt;float32&gt; = [[2.5, 7.9, 2.1], [653.1, 600.6, 11304.0]]
+  string-data: array&lt;$TYPE&gt; = [[&quot;apple&quot;, &quot;pear&quot;], [&quot;cider&quot;, &quot;pie&quot;]]
+  atomic:
+  {
+     int: int64: -7783627899
+     float: float64 = 1.5767e-27
+  }
+}
+</pre></div>
+</div>
+<p>The encoded JSON form of this data would be:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;_class&quot;</span><span class="p">:</span>
+  <span class="p">{</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
+    <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;example_class&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;_group&quot;</span><span class="p">:</span>
+  <span class="p">{</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
+    <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;example_group&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;_type&quot;</span><span class="p">:</span>
+  <span class="p">{</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
+    <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;_version&quot;</span><span class="p">:</span>
+  <span class="p">{</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;uint64&quot;</span>
+    <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">1</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;description&quot;</span><span class="p">:</span>
+  <span class="p">{</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
+    <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;An example data object.&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;float-data&quot;</span><span class="p">:</span>
+  <span class="p">{</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;array&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;value&quot;</span><span class="p">:</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;float32&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;shape&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+      <span class="s2">&quot;encoding&quot;</span><span class="p">:</span> <span class="s2">&quot;base64&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="s2">&quot;AAAgQM3M/EBmZgZAZkYjRGYmFkQAoDBG&quot;</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;string-data&quot;</span><span class="p">:</span>
+  <span class="p">{</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;array&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;value&quot;</span><span class="p">:</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;shape&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+      <span class="s2">&quot;encoding&quot;</span><span class="p">:</span> <span class="s2">&quot;list&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">[[</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;pear&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;cider&quot;</span><span class="p">,</span> <span class="s2">&quot;pie&quot;</span><span class="p">]]</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;atomic&quot;</span><span class="p">:</span>
+  <span class="p">{</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;branch&quot;</span>
+    <span class="s2">&quot;value&quot;</span><span class="p">:</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;int&quot;</span><span class="p">:</span>
+      <span class="p">{</span>
+        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;int64&quot;</span>
+        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">7783627899</span>
+      <span class="p">},</span>
+      <span class="s2">&quot;float&quot;</span><span class="p">:</span>
+      <span class="p">{</span>
+        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;float64&quot;</span>
+        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mf">1.5767e-27</span>
+      <span class="p">},</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="list-node-contents">
+<h3>List Node Contents<a class="headerlink" href="#list-node-contents" title="Permalink to this headline">¶</a></h3>
+<p>This operation lists the contents of the specified data-tree node.</p>
+<div class="section" id="id4">
+<h4>Request<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<p>The request should take the following form:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>GET /data/&lt;PATH&gt;?revision=&lt;REVISION&gt;&amp;auth=&lt;TOKEN&gt; HTTP/1.1
+Host: &lt;SERVER&gt;
+Authorization: Bearer &lt;TOKEN&gt;
+</pre></div>
+</div>
+<p>Query Arguments:</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal"><span class="pre">revision</span></code>: An integer revision number. Specifying 0 or <code class="docutils literal"><span class="pre">head</span></code> will return the head revision. (optional)</li>
+<li><code class="docutils literal"><span class="pre">auth</span></code>: The user’s authentication token. (optional)</li>
+</ul>
+</div></blockquote>
+<p>Headers:</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal"><span class="pre">Authorization</span></code>: See <a class="reference internal" href="#rest-api-authentication"><span class="std std-ref">Authentication</span></a>. (optional)</li>
+</ul>
+</div></blockquote>
+<p>Here <code class="docutils literal"><span class="pre">PATH</span></code> is the path to the required node without the revision element. Revisions are specified via an optional argument in the query string. If the revision argument is not present the head revision of the node is returned by default.</p>
+<p>For example, a request for revision 5 of the node located at <code class="docutils literal"><span class="pre">/group/item</span></code> with authentication by header:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>GET /data/group/item?revision=5 HTTP/1.1
+Host: sal.domain.local
+Authorization: Bearer eyJhbGciOiJIUzI1NiIXVCJ9...TJVA95OrM7E20RMHrHDcEfxjoYZgeFONFh7HgQ
+</pre></div>
+</div>
+<p>If the authentication request is successful a response will be generated. The contents of the response will depend on the type of node being pointed to by the request path.</p>
+</div>
+<div class="section" id="success-response-branch-node">
+<h4>Success Response (Branch Node)<a class="headerlink" href="#success-response-branch-node" title="Permalink to this headline">¶</a></h4>
+<p>Branch nodes will return a response as follows:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Status</span> <span class="n">Code</span><span class="p">:</span> <span class="mi">200</span> <span class="n">OK</span>
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span> <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+
+<span class="p">{</span>
+  <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;report&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;branch&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;object&quot;</span><span class="p">:</span>
+  <span class="p">{</span>
+    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">DESCRIPTION</span><span class="o">&gt;</span><span class="p">,</span>
+    <span class="s2">&quot;children&quot;</span><span class="p">:</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;branches&quot;</span><span class="p">:</span> <span class="p">[</span><span class="o">&lt;</span><span class="n">BRANCHES</span><span class="o">&gt;</span><span class="p">],</span>
+      <span class="s2">&quot;leaves&quot;</span><span class="p">:</span> <span class="p">[</span><span class="o">&lt;</span><span class="n">LEAVES</span><span class="o">&gt;</span><span class="p">]</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;timestamp&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">TIMESTAMP</span><span class="o">&gt;</span><span class="p">,</span>
+    <span class="s2">&quot;revision&quot;</span><span class="p">:</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;latest&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">LATEST_REVISION</span><span class="o">&gt;</span><span class="p">,</span>
+      <span class="s2">&quot;current&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">CURRENT_REVISION</span><span class="o">&gt;</span><span class="p">,</span>
+      <span class="s2">&quot;modified&quot;</span><span class="p">:</span> <span class="p">[</span><span class="o">&lt;</span><span class="n">ALL_REVISIONS</span><span class="o">&gt;</span><span class="p">]</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;request&quot;</span><span class="p">:</span>
+  <span class="p">{</span>
+    <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">REQUEST_URL</span><span class="o">&gt;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Where:</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal"><span class="pre">DESCRIPTION</span></code>: A text string describing the node contents.</li>
+<li><code class="docutils literal"><span class="pre">BRANCHES</span></code>: A list of child branch node names.</li>
+<li><code class="docutils literal"><span class="pre">LEAVES</span></code>: A list of child leaf nodes. Each leaf is described by a structure containing the leaf name and data class. See below.</li>
+<li><code class="docutils literal"><span class="pre">TIMESTAMP</span></code>: The date and time of node creation or update in ISO 8601 format.</li>
+<li><code class="docutils literal"><span class="pre">LATEST_REVISION</span></code>: The highest revision number available for the node.</li>
+<li><code class="docutils literal"><span class="pre">CURRENT_REVISION</span></code>: The revision number returned in the report.</li>
+<li><code class="docutils literal"><span class="pre">ALL_REVISIONS</span></code>: A list of all the available revisions of the node.</li>
+<li><code class="docutils literal"><span class="pre">REQUEST_URL</span></code>: The url passed as part of the request.</li>
+</ul>
+</div></blockquote>
+<p>The leaves in the leaf node list are described with the following structure:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="n">name</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">NAME</span><span class="o">&gt;</span>
+  <span class="n">class</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">CLASS</span><span class="o">&gt;</span><span class="p">,</span>
+  <span class="n">group</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">GROUP</span><span class="o">&gt;</span><span class="p">,</span>
+  <span class="n">version</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">VERSION</span><span class="o">&gt;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Where <code class="docutils literal"><span class="pre">NAME</span></code> is the node name. <code class="docutils literal"><span class="pre">CLASS</span></code>, <code class="docutils literal"><span class="pre">GROUP</span></code> and <code class="docutils literal"><span class="pre">VERSION</span></code> are data class identifiers corresponding to the data class stored under the leaf node.</p>
+<p>The following is an example of a populated branch node report:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Status</span> <span class="n">Code</span><span class="p">:</span> <span class="mi">200</span> <span class="n">OK</span>
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span> <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+
+<span class="p">{</span>
+  <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;report&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;branch&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;object&quot;</span><span class="p">:</span>
+  <span class="p">{</span>
+    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Data from main ADC.&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;children&quot;</span><span class="p">:</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;branches&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;config&quot;</span><span class="p">,</span> <span class="s2">&quot;calibration&quot;</span><span class="p">],</span>
+      <span class="s2">&quot;leaves&quot;</span><span class="p">:</span>
+      <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;voltage&quot;</span><span class="p">,</span>
+          <span class="n">class</span><span class="p">:</span> <span class="s2">&quot;signal&quot;</span><span class="p">,</span>
+          <span class="n">group</span><span class="p">:</span> <span class="s2">&quot;signal&quot;</span><span class="p">,</span>
+          <span class="n">version</span><span class="p">:</span> <span class="mi">1</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;current&quot;</span><span class="p">,</span>
+          <span class="n">class</span><span class="p">:</span> <span class="s2">&quot;signal&quot;</span><span class="p">,</span>
+          <span class="n">group</span><span class="p">:</span> <span class="s2">&quot;signal&quot;</span><span class="p">,</span>
+          <span class="n">version</span><span class="p">:</span> <span class="mi">1</span>
+        <span class="p">},</span>
+      <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;timestamp&quot;</span><span class="p">:</span> <span class="s2">&quot;2017-11-03T11:49:55.629648&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;revision&quot;</span><span class="p">:</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;latest&quot;</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span>
+      <span class="s2">&quot;current&quot;</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span>
+      <span class="s2">&quot;modified&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;request&quot;</span><span class="p">:</span>
+  <span class="p">{</span>
+    <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://sal.domain.local/data/pulse/4000/adc/main&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="success-response-leaf-node">
+<h4>Success Response (Leaf Node)<a class="headerlink" href="#success-response-leaf-node" title="Permalink to this headline">¶</a></h4>
+<p>A leaf node responses take the form:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Status</span> <span class="n">Code</span><span class="p">:</span> <span class="mi">200</span> <span class="n">OK</span>
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span> <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+
+<span class="p">{</span>
+  <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;report&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;leaf&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;object&quot;</span><span class="p">:</span>
+  <span class="p">{</span>
+    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">DESCRIPTION</span><span class="o">&gt;</span><span class="p">,</span>
+    <span class="s2">&quot;object&quot;</span><span class="p">:</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;class&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">CLASS</span><span class="o">&gt;</span><span class="p">,</span>
+      <span class="s2">&quot;group&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">GROUP</span><span class="o">&gt;</span><span class="p">,</span>
+      <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">VERSION</span><span class="o">&gt;</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;timestamp&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">TIMESTAMP</span><span class="o">&gt;</span><span class="p">,</span>
+    <span class="s2">&quot;revision&quot;</span><span class="p">:</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;latest&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">LATEST_REVISION</span><span class="o">&gt;</span><span class="p">,</span>
+      <span class="s2">&quot;current&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">CURRENT_REVISION</span><span class="o">&gt;</span><span class="p">,</span>
+      <span class="s2">&quot;modified&quot;</span><span class="p">:</span> <span class="p">[</span><span class="o">&lt;</span><span class="n">ALL_REVISIONS</span><span class="o">&gt;</span><span class="p">]</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;request&quot;</span><span class="p">:</span>
+  <span class="p">{</span>
+    <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">REQUEST_URL</span><span class="o">&gt;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Where:</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal"><span class="pre">DESCRIPTION</span></code>: A text string describing the node contents.</li>
+<li><code class="docutils literal"><span class="pre">CLASS</span></code>, <code class="docutils literal"><span class="pre">GROUP</span></code>, <code class="docutils literal"><span class="pre">VERSION</span></code>: Data class identifiers corresponding to the data class stored under the leaf node.</li>
+<li><code class="docutils literal"><span class="pre">TIMESTAMP</span></code>: The date and time of node creation or update in ISO 8601 format.</li>
+<li><code class="docutils literal"><span class="pre">LATEST_REVISION</span></code>: The highest revision number available for the node.</li>
+<li><code class="docutils literal"><span class="pre">CURRENT_REVISION</span></code>: The revision number returned in the report.</li>
+<li><code class="docutils literal"><span class="pre">ALL_REVISIONS</span></code>: A list of all the available revisions of the node.</li>
+<li><code class="docutils literal"><span class="pre">REQUEST_URL</span></code>: The url passed as part of the request.</li>
+</ul>
+</div></blockquote>
+<p>The following is an example of a populated leaf node report:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Status</span> <span class="n">Code</span><span class="p">:</span> <span class="mi">200</span> <span class="n">OK</span>
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span> <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+
+<span class="p">{</span>
+  <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;report&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;leaf&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;object&quot;</span><span class="p">:</span>
+  <span class="p">{</span>
+    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Main system current.&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;object&quot;</span><span class="p">:</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;signal&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;group&quot;</span><span class="p">:</span> <span class="s2">&quot;signal&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="mi">1</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;timestamp&quot;</span><span class="p">:</span> <span class="s2">&quot;2014-09-18T15:46:39.000000&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;revision&quot;</span><span class="p">:</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;latest&quot;</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span>
+      <span class="s2">&quot;current&quot;</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span>
+      <span class="s2">&quot;modified&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;request&quot;</span><span class="p">:</span>
+  <span class="p">{</span>
+    <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://sal.domain.local/data/pulse/4000/adc/main/current&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="get-node-objects">
+<h3>Get Node Objects<a class="headerlink" href="#get-node-objects" title="Permalink to this headline">¶</a></h3>
+<p>This operation returns the contents of the specified data-tree node. This may be either a data object or branch object.</p>
+<div class="section" id="id5">
+<h4>Request<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
+<p>The request should take the following form:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>GET /data/&lt;PATH&gt;?revision=&lt;REVISION&gt;&amp;object=&lt;TYPE&gt;&amp;auth=&lt;TOKEN&gt; HTTP/1.1
+Host: &lt;SERVER&gt;
+Authorization: Bearer &lt;TOKEN&gt;
+</pre></div>
+</div>
+<p>Query Arguments:</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal"><span class="pre">object</span></code>: The representation of object to obtain. Takes either <code class="docutils literal"><span class="pre">full</span></code> or <code class="docutils literal"><span class="pre">summary</span></code>. (required)</li>
+<li><code class="docutils literal"><span class="pre">revision</span></code>: An integer revision number. Specifying 0 or <code class="docutils literal"><span class="pre">head</span></code> will return the head revision. (optional)</li>
+<li><code class="docutils literal"><span class="pre">auth</span></code>: The user’s authentication token. (optional)</li>
+</ul>
+</div></blockquote>
+<p>Headers:</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal"><span class="pre">Authorization</span></code>: See <a class="reference internal" href="#rest-api-authentication"><span class="std std-ref">Authentication</span></a>. (optional)</li>
+</ul>
+</div></blockquote>
+<p>Here <code class="docutils literal"><span class="pre">PATH</span></code> is the path to the required node without the revision element. Revisions are specified via an optional argument in the query string. If the revision argument is not present the head revision of the node is returned by default.</p>
+<p>If the authentication request is successful a response will be generated. The contents of the response will depend on the type of node being pointed to by the request path.</p>
+</div>
+<div class="section" id="id6">
+<h4>Success Response (Branch Node)<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
+<p>Branch nodes will return a Branch object encoded in the response:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Status</span> <span class="n">Code</span><span class="p">:</span> <span class="mi">200</span> <span class="n">OK</span>
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span> <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+
+<span class="p">{</span>
+  <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;branch&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;object&quot;</span><span class="p">:</span>
+  <span class="p">{</span>
+    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">DESCRIPTION</span><span class="o">&gt;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;request&quot;</span><span class="p">:</span>
+  <span class="p">{</span>
+    <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">REQUEST_URL</span><span class="o">&gt;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Where:</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal"><span class="pre">DESCRIPTION</span></code>: A text string describing the node contents.</li>
+<li><code class="docutils literal"><span class="pre">REQUEST_URL</span></code>: The url passed as part of the request.</li>
+</ul>
+</div></blockquote>
+<p>The following is an example of a populated branch node object response:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Status</span> <span class="n">Code</span><span class="p">:</span> <span class="mi">200</span> <span class="n">OK</span>
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span> <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+
+<span class="p">{</span>
+  <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;branch&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;object&quot;</span><span class="p">:</span>
+  <span class="p">{</span>
+    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Data from main ADC.&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;request&quot;</span><span class="p">:</span>
+  <span class="p">{</span>
+    <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://sal.domain.local/data/pulse/4000/adc/main&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id7">
+<h4>Success Response (Leaf Node)<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h4>
+<p>Leaf nodes will return a data object encoded in the response. This data object may be the full object or summary object according to the requested representation:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Status</span> <span class="n">Code</span><span class="p">:</span> <span class="mi">200</span> <span class="n">OK</span>
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span> <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+
+<span class="p">{</span>
+  <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;leaf&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;object&quot;</span><span class="p">:</span>
+  <span class="p">{</span>
+    <span class="o">&lt;</span><span class="n">ENCODED_OBJECT</span><span class="o">&gt;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;request&quot;</span><span class="p">:</span>
+  <span class="p">{</span>
+    <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">REQUEST_URL</span><span class="o">&gt;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Where:</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal"><span class="pre">ENCODED_OBJECT</span></code>: The data object encoded using the type-encoded JSON scheme described in <a class="reference internal" href="#rest-api-encoding"><span class="std std-ref">Data Object Encoding</span></a>.</li>
+<li><code class="docutils literal"><span class="pre">REQUEST_URL</span></code>: The url passed as part of the request.</li>
+</ul>
+</div></blockquote>
+<p>The following is an example of a populated leaf node object response:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Status</span> <span class="n">Code</span><span class="p">:</span> <span class="mi">200</span> <span class="n">OK</span>
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span> <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+
+<span class="p">{</span>
+  <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;leaf&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;object&quot;</span><span class="p">:</span>
+  <span class="p">{</span>
+    <span class="s2">&quot;_type&quot;</span><span class="p">:</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;full&quot;</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;_class&quot;</span><span class="p">:</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;scalar&quot;</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;_group&quot;</span><span class="p">:</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;core&quot;</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;_version&quot;</span><span class="p">:</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;uint64&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">1</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;description&quot;</span><span class="p">:</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;Amplifier gain.&quot;</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;value&quot;</span><span class="p">:</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;uint64&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mf">2.356</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;request&quot;</span><span class="p">:</span>
+  <span class="p">{</span>
+    <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://sal.domain.local/data/pulse/4000/amplifier/main/gain?object=full&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This example is leaf node containing a full Scalar object. The object is type encoded as described in <a class="reference internal" href="#rest-api-encoding"><span class="std std-ref">Data Object Encoding</span></a>.</p>
+</div>
+</div>
+<div class="section" id="put-branch-node">
+<h3>Put Branch Node<a class="headerlink" href="#put-branch-node" title="Permalink to this headline">¶</a></h3>
+<p>Creates or updates a branch node.</p>
+<p>Overwriting an existing branch node will result in the description of the branch node being replaced with the description supplied in the request. The children of the node will be unaffected.</p>
+<p>If creating a new node, the parent node in the data tree must be a branch node otherwise the request will fail.</p>
+<div class="section" id="id8">
+<h4>Request<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h4>
+<p>The request should take the following form:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>POST /data/&lt;PATH&gt;?auth=&lt;TOKEN&gt; HTTP/1.1
+Host: &lt;SERVER&gt;
+Authorization: Bearer &lt;TOKEN&gt;
+
+{
+  &quot;content&quot;: &quot;object&quot;,
+  &quot;type&quot;: &quot;branch&quot;,
+  &quot;object&quot;:
+  {
+    &quot;description&quot;: &lt;DESCRIPTION&gt;
+  }
+}
+</pre></div>
+</div>
+<p>Query Arguments:</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal"><span class="pre">auth</span></code>: The user’s authentication token. (optional)</li>
+</ul>
+</div></blockquote>
+<p>Headers:</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal"><span class="pre">Authorization</span></code>: See <a class="reference internal" href="#rest-api-authentication"><span class="std std-ref">Authentication</span></a>. (optional)</li>
+</ul>
+</div></blockquote>
+<p>Here:</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal"><span class="pre">PATH</span></code>: The path to the node on which the new branch should be created.</li>
+<li><code class="docutils literal"><span class="pre">DESCRIPTION</span></code>: A text string describing the branch contents.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id9">
+<h4>Success Response<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h4>
+<p>If the write is successful a response will be returned contain the following:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Status</span> <span class="n">Code</span><span class="p">:</span> <span class="mi">204</span> <span class="n">No</span> <span class="n">Content</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="put-leaf-node">
+<h3>Put Leaf Node<a class="headerlink" href="#put-leaf-node" title="Permalink to this headline">¶</a></h3>
+<p>Creates or updates a leaf node node.</p>
+<p>Overwriting an existing leaf node will result in the data object stored on the leaf node being replaced unless the system being operated supports revisions (see <a class="reference internal" href="../datamodel.html#data-model"><span class="std std-ref">Data Model</span></a>).</p>
+<p>If creating a new node, the parent node in the data tree must be a branch node otherwise the request will fail.</p>
+<div class="section" id="id10">
+<h4>Request<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h4>
+<p>The request should take the following form:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>POST /data/&lt;PATH&gt;?auth=&lt;TOKEN&gt; HTTP/1.1
+Host: &lt;SERVER&gt;
+Authorization: Bearer &lt;TOKEN&gt;
+
+{
+  &quot;content&quot;: &quot;object&quot;,
+  &quot;type&quot;: &quot;leaf&quot;,
+  &quot;object&quot;:
+  {
+    &lt;ENCODED DATA OBJECT&gt;
+  }
+}
+</pre></div>
+</div>
+<p>Query Arguments:</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal"><span class="pre">auth</span></code>: The user’s authentication token. (optional)</li>
+</ul>
+</div></blockquote>
+<p>Headers:</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal"><span class="pre">Authorization</span></code>: See <a class="reference internal" href="#rest-api-authentication"><span class="std std-ref">Authentication</span></a>. (optional)</li>
+</ul>
+</div></blockquote>
+<p>Here <code class="docutils literal"><span class="pre">PATH</span></code> is the path to the node on which the new leaf should be created.</p>
+<p>[parent node must be a branch node]</p>
+</div>
+<div class="section" id="id11">
+<h4>Success Response<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h4>
+<p>If the write is successful a response will be returned contain the following:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Status</span> <span class="n">Code</span><span class="p">:</span> <span class="mi">204</span> <span class="n">No</span> <span class="n">Content</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="copy-existing-node">
+<h3>Copy Existing Node<a class="headerlink" href="#copy-existing-node" title="Permalink to this headline">¶</a></h3>
+<p>Duplicates the specified node at a new location.</p>
+<p>The copy operation performs a recursive copy of the entire sub-tree under a branch node, replacing any descendants of the target node if they exist.</p>
+<p>If the copy would create a new node, the parent node in the data tree must be a branch node otherwise the request will fail.</p>
+<div class="section" id="id12">
+<h4>Request<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h4>
+<p>The request should take the following form:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>POST /data/&lt;TARGET&gt;?source=&lt;SOURCE&gt;&amp;source_revision=&lt;REVISION&gt;&amp;auth=&lt;TOKEN&gt; HTTP/1.1
+Host: &lt;SERVER&gt;
+Authorization: Bearer &lt;TOKEN&gt;
+</pre></div>
+</div>
+<p>Query Arguments:</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal"><span class="pre">source</span></code>: The path to the source node. (required)</li>
+<li><code class="docutils literal"><span class="pre">source_revision</span></code>: An integer specifying the revision of source node to copy. (optional)</li>
+<li><code class="docutils literal"><span class="pre">auth</span></code>: The user’s authentication token. (optional)</li>
+</ul>
+</div></blockquote>
+<p>Headers:</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal"><span class="pre">Authorization</span></code>: See <a class="reference internal" href="#rest-api-authentication"><span class="std std-ref">Authentication</span></a>. (optional)</li>
+</ul>
+</div></blockquote>
+<p>Here <code class="docutils literal"><span class="pre">SOURCE</span></code> is the path to the source node without the revision element. Revisions are specified via the optional argument <code class="docutils literal"><span class="pre">source_revision</span></code> in the query string. If the revision argument is not present the head revision of the node is returned by default.</p>
+<p>Here <code class="docutils literal"><span class="pre">TARGET</span></code> is the path on to which the source node should be copied.</p>
+</div>
+<div class="section" id="id13">
+<h4>Success Response<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h4>
+<p>If the write is successful a response will be returned contain the following:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Status</span> <span class="n">Code</span><span class="p">:</span> <span class="mi">204</span> <span class="n">No</span> <span class="n">Content</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="delete-node">
+<h3>Delete Node<a class="headerlink" href="#delete-node" title="Permalink to this headline">¶</a></h3>
+<p>Deletes the specified node.</p>
+<p>Deletion of a branch node will result in all of its descendants being recursively deleted.</p>
+<div class="section" id="id14">
+<h4>Request<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h4>
+<p>The request should take the following form:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>DELETE /data/&lt;PATH&gt;?auth=&lt;TOKEN&gt; HTTP/1.1
+Host: &lt;SERVER&gt;
+Authorization: Bearer &lt;TOKEN&gt;
+</pre></div>
+</div>
+<p>Query Arguments:</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal"><span class="pre">auth</span></code>: The user’s authentication token. (optional)</li>
+</ul>
+</div></blockquote>
+<p>Headers:</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal"><span class="pre">Authorization</span></code>: See <a class="reference internal" href="#rest-api-authentication"><span class="std std-ref">Authentication</span></a>. (optional)</li>
+</ul>
+</div></blockquote>
+<p>Here <code class="docutils literal"><span class="pre">PATH</span></code> is the path of the node to be deleted.</p>
+</div>
+<div class="section" id="id15">
+<h4>Success Response<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h4>
+<p>If the write is successful a response will be returned contain the following:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Status</span> <span class="n">Code</span><span class="p">:</span> <span class="mi">204</span> <span class="n">No</span> <span class="n">Content</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="permission-tree-operations">
+<h2>Permission Tree Operations<a class="headerlink" href="#permission-tree-operations" title="Permalink to this headline">¶</a></h2>
+<p>TBD</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="deployment.html" class="btn btn-neutral float-right" title="Deployment" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../server.html" class="btn btn-neutral" title="Server" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Dr Alex Meakins.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.2.2',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
