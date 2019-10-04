@@ -17,42 +17,45 @@
   
 
   
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../../',
+              VERSION:'1.2.2',
+              LANGUAGE:'None',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
-  
-  
-    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Index"
-              href="../../genindex.html"/>
-        <link rel="search" title="Search" href="../../search.html"/>
-    <link rel="top" title="Simple Access Layer (SAL) 1.2.2 documentation" href="../../index.html"/>
-        <link rel="up" title="Data Classes" href="../dataclasses.html"/>
-        <link rel="prev" title="Array Class" href="array.html"/> 
-
-  
-  <script src="../../_static/js/modernizr.min.js"></script>
-
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="Array Class" href="array.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -123,7 +126,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">Simple Access Layer (SAL)</a>
@@ -131,9 +134,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -186,7 +190,7 @@
 <h2>Core Class<a class="headerlink" href="#core-class" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="full-object-definition">
 <h3>Full Object Definition<a class="headerlink" href="#full-object-definition" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-default"><div class="highlight"><pre><span></span>object: {
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>object: {
     _class: string = &quot;signal&quot;
     _group: string = &quot;signal&quot;
     _type: string = &quot;object&quot;
@@ -211,7 +215,7 @@
 </div>
 <div class="section" id="summary-object-definition">
 <h3>Summary Object Definition<a class="headerlink" href="#summary-object-definition" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-default"><div class="highlight"><pre><span></span>object: {
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>object: {
     _class: string = &quot;signal&quot;
     _group: string = &quot;signal&quot;
     _type: string = &quot;summary&quot;
@@ -240,7 +244,7 @@
 <h3>Calculated Dimension<a class="headerlink" href="#calculated-dimension" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="id1">
 <h4>Full Object Definition<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-default"><div class="highlight"><pre><span></span>object: {
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>object: {
     _class: string = &quot;dimension_calculated&quot;
     _group: string = &quot;signal_dimension&quot;
     _type: string = &quot;object&quot;
@@ -258,7 +262,7 @@
 </div>
 <div class="section" id="id2">
 <h4>Summary Object Definition<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-default"><div class="highlight"><pre><span></span>object: {
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>object: {
     _class: string = &quot;dimension_calculated&quot;
     _group: string = &quot;signal_dimension&quot;
     _type: string = &quot;summary&quot;
@@ -277,7 +281,7 @@
 <h3>Array Dimension Sub-Class<a class="headerlink" href="#array-dimension-sub-class" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="id3">
 <h4>Full Object Definition<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-default"><div class="highlight"><pre><span></span>object: {
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>object: {
     _class: string = &quot;dimension_array&quot;
     _group: string = &quot;signal_dimension&quot;
     _type: string = &quot;object&quot;
@@ -294,7 +298,7 @@
 </div>
 <div class="section" id="id4">
 <h4>Summary Object Definition<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-default"><div class="highlight"><pre><span></span>object: {
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>object: {
     _class: string = &quot;dimension_array&quot;
     _group: string = &quot;signal_dimension&quot;
     _type: string = &quot;summary&quot;
@@ -316,7 +320,7 @@
 <h3>Constant Error<a class="headerlink" href="#constant-error" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="id5">
 <h4>Full Object Definition<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-default"><div class="highlight"><pre><span></span>object: {
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>object: {
     _class: string = &quot;error_constant&quot;
     _group: string = &quot;signal_error&quot;
     _type: string = &quot;object&quot;
@@ -331,7 +335,7 @@
 </div>
 <div class="section" id="id6">
 <h4>Summary Object Definition<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nb">object</span><span class="p">:</span> <span class="p">{</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">object</span><span class="p">:</span> <span class="p">{</span>
     <span class="n">_class</span><span class="p">:</span> <span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;error_constant&quot;</span>
     <span class="n">_group</span><span class="p">:</span> <span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;signal_error&quot;</span>
     <span class="n">_type</span><span class="p">:</span> <span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;summary&quot;</span>
@@ -346,7 +350,7 @@
 <h3>Symmetrical Error Array<a class="headerlink" href="#symmetrical-error-array" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="id7">
 <h4>Full Object Definition<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-default"><div class="highlight"><pre><span></span>object: {
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>object: {
     _class: string = &quot;error_symmetrical&quot;
     _group: string = &quot;signal_error&quot;
     _type: string = &quot;object&quot;
@@ -359,7 +363,7 @@
 </div>
 <div class="section" id="id8">
 <h4>Summary Object Definition<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nb">object</span><span class="p">:</span> <span class="p">{</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">object</span><span class="p">:</span> <span class="p">{</span>
     <span class="n">_class</span><span class="p">:</span> <span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;error_symmetrical&quot;</span>
     <span class="n">_group</span><span class="p">:</span> <span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;signal_error&quot;</span>
     <span class="n">_type</span><span class="p">:</span> <span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;summary&quot;</span>
@@ -374,7 +378,7 @@
 <h3>Asymmetric Error Array<a class="headerlink" href="#asymmetric-error-array" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="id9">
 <h4>Full Object Definition<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-default"><div class="highlight"><pre><span></span>object: {
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>object: {
     _class: string = &quot;error_asymmetric&quot;
     _group: string = &quot;signal_error&quot;
     _type: string = &quot;object&quot;
@@ -388,7 +392,7 @@
 </div>
 <div class="section" id="id10">
 <h4>Summary Object Definition<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nb">object</span><span class="p">:</span> <span class="p">{</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">object</span><span class="p">:</span> <span class="p">{</span>
     <span class="n">_class</span><span class="p">:</span> <span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;error_asymmetric&quot;</span>
     <span class="n">_group</span><span class="p">:</span> <span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;signal_error&quot;</span>
     <span class="n">_type</span><span class="p">:</span> <span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;summary&quot;</span>
@@ -406,7 +410,7 @@
 <h3>Scalar Status Mask<a class="headerlink" href="#scalar-status-mask" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="id11">
 <h4>Full Object Definition<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-default"><div class="highlight"><pre><span></span>object: {
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>object: {
     _class: string = &quot;mask_scalar_status&quot;
     _group: string = &quot;signal_mask&quot;
     _type: string = &quot;object&quot;
@@ -420,7 +424,7 @@
 </div>
 <div class="section" id="id12">
 <h4>Summary Object Definition<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nb">object</span><span class="p">:</span> <span class="p">{</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">object</span><span class="p">:</span> <span class="p">{</span>
     <span class="n">_class</span><span class="p">:</span> <span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;mask_scalar_status&quot;</span>
     <span class="n">_group</span><span class="p">:</span> <span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;signal_mask&quot;</span>
     <span class="n">_type</span><span class="p">:</span> <span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;summary&quot;</span>
@@ -432,7 +436,7 @@
 </div>
 <div class="section" id="example">
 <h4>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nb">object</span><span class="p">:</span> <span class="p">{</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">object</span><span class="p">:</span> <span class="p">{</span>
     <span class="n">_class</span><span class="p">:</span> <span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;mask_scalar_status&quot;</span>
     <span class="n">_group</span><span class="p">:</span> <span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;signal_mask&quot;</span>
     <span class="n">_type</span><span class="p">:</span> <span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;object&quot;</span>
@@ -449,7 +453,7 @@
 <h3>Array Status Mask<a class="headerlink" href="#array-status-mask" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="id13">
 <h4>Full Object Definition<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-default"><div class="highlight"><pre><span></span>object: {
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>object: {
     _class: string = &quot;mask_status_array&quot;
     _group: string = &quot;signal_mask&quot;
     _type: string = &quot;object&quot;
@@ -463,7 +467,7 @@
 </div>
 <div class="section" id="id14">
 <h4>Summary Object Definition<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nb">object</span><span class="p">:</span> <span class="p">{</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">object</span><span class="p">:</span> <span class="p">{</span>
     <span class="n">_class</span><span class="p">:</span> <span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;mask_status_array&quot;</span>
     <span class="n">_group</span><span class="p">:</span> <span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;signal_mask&quot;</span>
     <span class="n">_type</span><span class="p">:</span> <span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;summary&quot;</span>
@@ -475,7 +479,7 @@
 </div>
 <div class="section" id="id15">
 <h4>Example<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nb">object</span><span class="p">:</span> <span class="p">{</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">object</span><span class="p">:</span> <span class="p">{</span>
     <span class="n">_class</span><span class="p">:</span> <span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;mask_status_array&quot;</span>
     <span class="n">_group</span><span class="p">:</span> <span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;signal_mask&quot;</span>
     <span class="n">_type</span><span class="p">:</span> <span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;object&quot;</span>
@@ -496,16 +500,14 @@
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
       
-        <a href="array.html" class="btn btn-neutral" title="Array Class" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="array.html" class="btn btn-neutral float-left" title="Array Class" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -514,11 +516,11 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2017, Dr Alex Meakins.
+        &copy; Copyright 2018, European Atomic Energy Community (EURATOM)
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -531,37 +533,15 @@
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../../',
-            VERSION:'1.2.2',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../../_static/jquery.js"></script>
-      <script type="text/javascript" src="../../_static/underscore.js"></script>
-      <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-  
-
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
+
+  
+  
+    
    
 
 </body>

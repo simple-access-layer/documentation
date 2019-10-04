@@ -17,43 +17,46 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'1.2.2',
+              LANGUAGE:'None',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Index"
-              href="../genindex.html"/>
-        <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Simple Access Layer (SAL) 1.2.2 documentation" href="../index.html"/>
-        <link rel="up" title="Server" href="../server.html"/>
-        <link rel="next" title="Data Model" href="../datamodel.html"/>
-        <link rel="prev" title="Deployment" href="deployment.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Data Model" href="../datamodel.html" />
+    <link rel="prev" title="Deployment" href="deployment.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -131,7 +134,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Simple Access Layer (SAL)</a>
@@ -139,9 +142,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -507,7 +511,7 @@ alternative behaviour.</p>
 <p>The SAL server must have a maximum object size set, to prevent server memory being exhausted by a single requests (note streaming validation may remove this concern). Equally client memory is limited so huge objects can not be set to an arbitrary client. The SAL data system, by design, does not understand the contents of the data classes. It therefore does not know how to intelligently provide ranges of e.g. signal data or frames of videos, it simply returns objects. The reason for this is server simplicity.</p>
 <p>Large objects are defined as objects that may exceed a typical clients memory when a small number are read (at present large objects are ~512MB, so max ~4-5 objects on a windows 4GB machine).</p>
 <p>The plan for large signal handling is to perform client side chunking of the data. For example a LargeSignal class would hold references to multiple Signal objects that hold chunks of the full LargeSignal data range. E.g. a 2D signal of 10Mx10M elements could be chunked as follows:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">path_to_signal</span><span class="o">/</span><span class="n">signalname</span> <span class="o">-&gt;</span> <span class="n">LargeSignal</span> <span class="nb">object</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">path_to_signal</span><span class="o">/</span><span class="n">signalname</span> <span class="o">-&gt;</span> <span class="n">LargeSignal</span> <span class="nb">object</span>
 <span class="n">path_to_signal</span><span class="o">/</span><span class="n">signalname_chunks</span><span class="o">/</span><span class="n">chunk_1_1</span> <span class="o">-&gt;</span> <span class="n">Signal</span> <span class="nb">object</span> <span class="n">holding</span> <span class="n">x</span> <span class="nb">range</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="n">M</span><span class="p">),</span> <span class="n">y</span> <span class="nb">range</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="n">M</span><span class="p">)</span>
 <span class="n">path_to_signal</span><span class="o">/</span><span class="n">signalname_chunks</span><span class="o">/</span><span class="n">chunk_2_1</span> <span class="o">-&gt;</span> <span class="n">Signal</span> <span class="nb">object</span> <span class="n">holding</span> <span class="n">x</span> <span class="nb">range</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="n">M</span><span class="p">:</span><span class="mi">10</span><span class="n">M</span><span class="p">),</span> <span class="n">y</span> <span class="nb">range</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="n">M</span><span class="p">)</span>
 <span class="n">path_to_signal</span><span class="o">/</span><span class="n">signalname_chunks</span><span class="o">/</span><span class="n">chunk_1_2</span> <span class="o">-&gt;</span> <span class="n">Signal</span> <span class="nb">object</span> <span class="n">holding</span> <span class="n">x</span> <span class="nb">range</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="n">M</span><span class="p">),</span> <span class="n">y</span> <span class="nb">range</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="n">M</span><span class="p">:</span><span class="mi">10</span><span class="n">M</span><span class="p">)</span>
@@ -536,9 +540,7 @@ alternative behaviour.</p>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -547,7 +549,7 @@ alternative behaviour.</p>
         <a href="../datamodel.html" class="btn btn-neutral float-right" title="Data Model" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="deployment.html" class="btn btn-neutral" title="Deployment" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="deployment.html" class="btn btn-neutral float-left" title="Deployment" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -556,11 +558,11 @@ alternative behaviour.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2017, Dr Alex Meakins.
+        &copy; Copyright 2018, European Atomic Energy Community (EURATOM)
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -573,37 +575,15 @@ alternative behaviour.</p>
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'1.2.2',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
-
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
+
+  
+  
+    
    
 
 </body>

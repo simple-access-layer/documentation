@@ -17,43 +17,46 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'1.2.2',
+              LANGUAGE:'None',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Index"
-              href="../genindex.html"/>
-        <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Simple Access Layer (SAL) 1.2.2 documentation" href="../index.html"/>
-        <link rel="up" title="Clients" href="../clients.html"/>
-        <link rel="next" title="C Client" href="c.html"/>
-        <link rel="prev" title="Clients" href="../clients.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="C Client" href="c.html" />
+    <link rel="prev" title="Clients" href="../clients.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -124,7 +127,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Simple Access Layer (SAL)</a>
@@ -132,9 +135,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -191,11 +195,11 @@
 <p>To connect to a SAL server, the server URL must be supplied via the
 host attribute. The host string must be a valid url, including the
 scheme:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">sal</span><span class="o">.</span><span class="n">server</span><span class="o">.</span><span class="n">local</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">sal</span><span class="o">.</span><span class="n">server</span><span class="o">.</span><span class="n">local</span>
 </pre></div>
 </div>
 <p>A port number may be included:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">sal</span><span class="o">.</span><span class="n">server</span><span class="o">.</span><span class="n">local</span><span class="p">:</span><span class="mi">5000</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">sal</span><span class="o">.</span><span class="n">server</span><span class="o">.</span><span class="n">local</span><span class="p">:</span><span class="mi">5000</span>
 </pre></div>
 </div>
 <p>The client will attempt a connection to the specified server to confirm
@@ -361,8 +365,8 @@ no effect for branch nodes.</p>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">A <a class="reference internal" href="#sal.core.object.Branch" title="sal.core.object.Branch"><code class="xref py py-class docutils literal"><span class="pre">Branch</span></code></a>, <a class="reference internal" href="#sal.core.object.DataObject" title="sal.core.object.DataObject"><code class="xref py py-class docutils literal"><span class="pre">DataObject</span></code></a>
-or <a class="reference internal" href="#sal.core.object.DataSummary" title="sal.core.object.DataSummary"><code class="xref py py-class docutils literal"><span class="pre">DataSummary</span></code></a> object.</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">A <a class="reference internal" href="#sal.core.object.Branch" title="sal.core.object.Branch"><code class="xref py py-class docutils literal notranslate"><span class="pre">Branch</span></code></a>, <a class="reference internal" href="#sal.core.object.DataObject" title="sal.core.object.DataObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataObject</span></code></a>
+or <a class="reference internal" href="#sal.core.object.DataSummary" title="sal.core.object.DataSummary"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataSummary</span></code></a> object.</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
@@ -390,7 +394,7 @@ For leaf nodes, a LeafReport object is returned.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>path</strong> – A valid node path.</p>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">A <a class="reference internal" href="#sal.core.object.BranchReport" title="sal.core.object.BranchReport"><code class="xref py py-class docutils literal"><span class="pre">BranchReport</span></code></a> or <a class="reference internal" href="#sal.core.object.LeafReport" title="sal.core.object.LeafReport"><code class="xref py py-class docutils literal"><span class="pre">LeafReport</span></code></a> object.</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">A <a class="reference internal" href="#sal.core.object.BranchReport" title="sal.core.object.BranchReport"><code class="xref py py-class docutils literal notranslate"><span class="pre">BranchReport</span></code></a> or <a class="reference internal" href="#sal.core.object.LeafReport" title="sal.core.object.LeafReport"><code class="xref py py-class docutils literal notranslate"><span class="pre">LeafReport</span></code></a> object.</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
@@ -427,7 +431,7 @@ the description, can not be automatically populated.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>path</strong> – A valid node path.</li>
-<li><strong>content</strong> – A <a class="reference internal" href="#sal.core.object.Branch" title="sal.core.object.Branch"><code class="xref py py-class docutils literal"><span class="pre">Branch</span></code></a> or <a class="reference internal" href="#sal.core.object.DataObject" title="sal.core.object.DataObject"><code class="xref py py-class docutils literal"><span class="pre">DataObject</span></code></a> instance.</li>
+<li><strong>content</strong> – A <a class="reference internal" href="#sal.core.object.Branch" title="sal.core.object.Branch"><code class="xref py py-class docutils literal notranslate"><span class="pre">Branch</span></code></a> or <a class="reference internal" href="#sal.core.object.DataObject" title="sal.core.object.DataObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataObject</span></code></a> instance.</li>
 </ul>
 </td>
 </tr>
@@ -461,7 +465,7 @@ host url.</p>
 </div>
 <div class="section" id="report-classes">
 <h2>Report Classes<a class="headerlink" href="#report-classes" title="Permalink to this headline">¶</a></h2>
-<p>These classes are returned by <a class="reference internal" href="#sal.client.SALClient.list" title="sal.client.SALClient.list"><code class="xref py py-meth docutils literal"><span class="pre">list()</span></code></a> operations and provide information on the data-tree nodes. To simplify working interactively, the <code class="xref py py-meth docutils literal"><span class="pre">__repr__()</span></code> method has been overridden in these classes to print a summary of the report to the console.</p>
+<p>These classes are returned by <a class="reference internal" href="#sal.client.SALClient.list" title="sal.client.SALClient.list"><code class="xref py py-meth docutils literal notranslate"><span class="pre">list()</span></code></a> operations and provide information on the data-tree nodes. To simplify working interactively, the <code class="xref py py-meth docutils literal notranslate"><span class="pre">__repr__()</span></code> method has been overridden in these classes to print a summary of the report to the console.</p>
 <dl class="class">
 <dt id="sal.core.object.BranchReport">
 <em class="property">class </em><code class="descclassname">sal.core.object.</code><code class="descname">BranchReport</code><span class="sig-paren">(</span><em>description</em>, <em>branches</em>, <em>leaves</em>, <em>timestamp</em>, <em>revision_current=1</em>, <em>revision_latest=1</em>, <em>revision_modified=None</em><span class="sig-paren">)</span><a class="headerlink" href="#sal.core.object.BranchReport" title="Permalink to this definition">¶</a></dt>
@@ -559,7 +563,7 @@ host url.</p>
 </div>
 <div class="section" id="branch-class">
 <h2>Branch Class<a class="headerlink" href="#branch-class" title="Permalink to this headline">¶</a></h2>
-<p>The branch class represents a branch object, it is returned by a <a class="reference internal" href="#sal.client.SALClient.get" title="sal.client.SALClient.get"><code class="xref py py-meth docutils literal"><span class="pre">get()</span></code></a> operation on a branch node. The same object is passed to <a class="reference internal" href="#sal.client.SALClient.put" title="sal.client.SALClient.put"><code class="xref py py-meth docutils literal"><span class="pre">put()</span></code></a> to create a branch node in the data-tree.</p>
+<p>The branch class represents a branch object, it is returned by a <a class="reference internal" href="#sal.client.SALClient.get" title="sal.client.SALClient.get"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get()</span></code></a> operation on a branch node. The same object is passed to <a class="reference internal" href="#sal.client.SALClient.put" title="sal.client.SALClient.put"><code class="xref py py-meth docutils literal notranslate"><span class="pre">put()</span></code></a> to create a branch node in the data-tree.</p>
 <dl class="class">
 <dt id="sal.core.object.Branch">
 <em class="property">class </em><code class="descclassname">sal.core.object.</code><code class="descname">Branch</code><span class="sig-paren">(</span><em>description</em><span class="sig-paren">)</span><a class="headerlink" href="#sal.core.object.Branch" title="Permalink to this definition">¶</a></dt>
@@ -628,13 +632,13 @@ a signal, image, or audio recording. A SAL leaf node contains a single DataObjec
 <p>A new SAL data class is defined by extending DataObject and defining an associated
 DataSummary class. The data object is then registered with SAL using the register
 decorator found in this module:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nd">@register</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@register</span>
 <span class="k">class</span> <span class="nc">MyNewType</span><span class="p">(</span><span class="n">DataObject</span><span class="p">):</span>
     <span class="n">etc</span><span class="o">...</span>
 </pre></div>
 </div>
 <p>Concrete classes derived from DataObject must populate four class attributes:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">CLASS</span><span class="p">:</span> <span class="n">A</span> <span class="n">string</span> <span class="n">that</span> <span class="n">uniquely</span> <span class="n">identifies</span> <span class="n">the</span> <span class="k">class</span> <span class="nc">to</span> <span class="n">the</span> <span class="n">SAL</span> <span class="n">server</span> <span class="ow">and</span> <span class="n">client</span><span class="o">.</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CLASS</span><span class="p">:</span> <span class="n">A</span> <span class="n">string</span> <span class="n">that</span> <span class="n">uniquely</span> <span class="n">identifies</span> <span class="n">the</span> <span class="k">class</span> <span class="nc">to</span> <span class="n">the</span> <span class="n">SAL</span> <span class="n">server</span> <span class="ow">and</span> <span class="n">client</span><span class="o">.</span>
 <span class="n">GROUP</span><span class="p">:</span> <span class="n">A</span> <span class="n">string</span> <span class="n">that</span> <span class="n">specifies</span> <span class="n">the</span> <span class="n">data</span> <span class="k">class</span> <span class="nc">groups</span> <span class="n">the</span> <span class="k">class</span> <span class="nc">belongs</span> <span class="n">to</span><span class="o">.</span>
 <span class="n">VERSION</span><span class="p">:</span> <span class="n">An</span> <span class="n">integer</span> <span class="n">specifying</span> <span class="n">the</span> <span class="n">version</span> <span class="n">of</span> <span class="n">the</span> <span class="n">data</span> <span class="n">class</span><span class="o">.</span>
 <span class="n">SUMMARY_CLASS</span><span class="p">:</span> <span class="n">The</span> <span class="n">summary</span> <span class="k">class</span> <span class="nc">associated</span> <span class="k">with</span> <span class="n">the</span> <span class="n">data</span> <span class="n">class</span><span class="o">.</span>  
@@ -666,9 +670,9 @@ dictionary pre-populated with the data class metadata keys.</p>
 <code class="descname">VERSION</code><em class="property"> = -1</em><a class="headerlink" href="#sal.core.object.DataObject.VERSION" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="classmethod">
 <dt id="sal.core.object.DataObject.from_dict">
-<code class="descname">from_dict</code><span class="sig-paren">(</span><em>d</em><span class="sig-paren">)</span><a class="headerlink" href="#sal.core.object.DataObject.from_dict" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="descname">from_dict</code><span class="sig-paren">(</span><em>d</em><span class="sig-paren">)</span><a class="headerlink" href="#sal.core.object.DataObject.from_dict" title="Permalink to this definition">¶</a></dt>
 <dd><p>Instances the class from a dictionary representation.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -761,9 +765,9 @@ values in the associated DataObject.</p>
 <code class="descname">VERSION</code><em class="property"> = -1</em><a class="headerlink" href="#sal.core.object.DataSummary.VERSION" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="classmethod">
 <dt id="sal.core.object.DataSummary.from_dict">
-<code class="descname">from_dict</code><span class="sig-paren">(</span><em>d</em><span class="sig-paren">)</span><a class="headerlink" href="#sal.core.object.DataSummary.from_dict" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="descname">from_dict</code><span class="sig-paren">(</span><em>d</em><span class="sig-paren">)</span><a class="headerlink" href="#sal.core.object.DataSummary.from_dict" title="Permalink to this definition">¶</a></dt>
 <dd><p>Instances the class from a dictionary representation.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -847,7 +851,7 @@ float32, float64, bool</dd>
 <dl class="attribute">
 <dt id="sal.dataclass.Scalar.SUMMARY_CLASS">
 <code class="descname">SUMMARY_CLASS</code><a class="headerlink" href="#sal.dataclass.Scalar.SUMMARY_CLASS" title="Permalink to this definition">¶</a></dt>
-<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">ScalarSummary</span></code></p>
+<dd><p>alias of <a class="reference internal" href="#sal.dataclass.ScalarSummary" title="sal.dataclass.ScalarSummary"><code class="xref py py-class docutils literal notranslate"><span class="pre">ScalarSummary</span></code></a></p>
 </dd></dl>
 
 <dl class="classmethod">
@@ -892,12 +896,6 @@ float32, float64, bool</dd>
 </tr>
 </tbody>
 </table>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="sal.dataclass.Scalar.description">
-<code class="descname">description</code><em class="property"> = None</em><a class="headerlink" href="#sal.dataclass.Scalar.description" title="Permalink to this definition">¶</a></dt>
-<dd><p>A string describing the scalar value.</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -952,12 +950,6 @@ float32, float64, bool</dd>
 </table>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="sal.dataclass.ScalarSummary.description">
-<code class="descname">description</code><em class="property"> = None</em><a class="headerlink" href="#sal.dataclass.ScalarSummary.description" title="Permalink to this definition">¶</a></dt>
-<dd><p>A string describing the scalar value.</p>
-</dd></dl>
-
 </dd></dl>
 
 </div>
@@ -985,7 +977,7 @@ python str object.</p>
 <dl class="attribute">
 <dt id="sal.dataclass.String.SUMMARY_CLASS">
 <code class="descname">SUMMARY_CLASS</code><a class="headerlink" href="#sal.dataclass.String.SUMMARY_CLASS" title="Permalink to this definition">¶</a></dt>
-<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">StringSummary</span></code></p>
+<dd><p>alias of <a class="reference internal" href="#sal.dataclass.StringSummary" title="sal.dataclass.StringSummary"><code class="xref py py-class docutils literal notranslate"><span class="pre">StringSummary</span></code></a></p>
 </dd></dl>
 
 <dl class="classmethod">
@@ -1030,12 +1022,6 @@ python str object.</p>
 </tr>
 </tbody>
 </table>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="sal.dataclass.String.description">
-<code class="descname">description</code><em class="property"> = None</em><a class="headerlink" href="#sal.dataclass.String.description" title="Permalink to this definition">¶</a></dt>
-<dd><p>A string describing the string.</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -1090,12 +1076,6 @@ python str object.</p>
 </table>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="sal.dataclass.StringSummary.description">
-<code class="descname">description</code><em class="property"> = None</em><a class="headerlink" href="#sal.dataclass.StringSummary.description" title="Permalink to this definition">¶</a></dt>
-<dd><p>A string describing the string.</p>
-</dd></dl>
-
 </dd></dl>
 
 </div>
@@ -1109,7 +1089,7 @@ python str object.</p>
 <p>A dictionary class contains a collection of data values indexed by a key.
 The key is a string (e.g. ‘enabled’, ‘gain’) that is unique in the
 dictionary. The key strings must consist of only the characters:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">a</span><span class="o">-</span><span class="n">z</span><span class="p">]</span> <span class="p">[</span><span class="mi">0</span><span class="o">-</span><span class="mi">9</span><span class="p">]</span> <span class="o">.</span> <span class="o">-</span> <span class="n">_</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">a</span><span class="o">-</span><span class="n">z</span><span class="p">]</span> <span class="p">[</span><span class="mi">0</span><span class="o">-</span><span class="mi">9</span><span class="p">]</span> <span class="o">.</span> <span class="o">-</span> <span class="n">_</span>
 </pre></div>
 </div>
 <p>Associated with each key is a value. The following types are supported for
@@ -1142,7 +1122,7 @@ all the basic dictionary operations.</p>
 <dl class="attribute">
 <dt id="sal.dataclass.Dictionary.SUMMARY_CLASS">
 <code class="descname">SUMMARY_CLASS</code><a class="headerlink" href="#sal.dataclass.Dictionary.SUMMARY_CLASS" title="Permalink to this definition">¶</a></dt>
-<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">DictionarySummary</span></code></p>
+<dd><p>alias of <a class="reference internal" href="#sal.dataclass.DictionarySummary" title="sal.dataclass.DictionarySummary"><code class="xref py py-class docutils literal notranslate"><span class="pre">DictionarySummary</span></code></a></p>
 </dd></dl>
 
 <dl class="classmethod">
@@ -1189,12 +1169,6 @@ all the basic dictionary operations.</p>
 </table>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="sal.dataclass.Dictionary.description">
-<code class="descname">description</code><em class="property"> = None</em><a class="headerlink" href="#sal.dataclass.Dictionary.description" title="Permalink to this definition">¶</a></dt>
-<dd><p>A string describing the dictionary contents.</p>
-</dd></dl>
-
 </dd></dl>
 
 <p><strong>Summary Object:</strong></p>
@@ -1239,12 +1213,6 @@ all the basic dictionary operations.</p>
 </tr>
 </tbody>
 </table>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="sal.dataclass.DictionarySummary.description">
-<code class="descname">description</code><em class="property"> = None</em><a class="headerlink" href="#sal.dataclass.DictionarySummary.description" title="Permalink to this definition">¶</a></dt>
-<dd><p>A string describing the dictionary contents.</p>
 </dd></dl>
 
 </dd></dl>
@@ -1304,7 +1272,7 @@ characters.</p>
 <dl class="attribute">
 <dt id="sal.dataclass.Array.SUMMARY_CLASS">
 <code class="descname">SUMMARY_CLASS</code><a class="headerlink" href="#sal.dataclass.Array.SUMMARY_CLASS" title="Permalink to this definition">¶</a></dt>
-<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">ArraySummary</span></code></p>
+<dd><p>alias of <a class="reference internal" href="#sal.dataclass.ArraySummary" title="sal.dataclass.ArraySummary"><code class="xref py py-class docutils literal notranslate"><span class="pre">ArraySummary</span></code></a></p>
 </dd></dl>
 
 <dl class="classmethod">
@@ -1423,7 +1391,7 @@ saturated.</p>
 <p>The minimal requirements to create a signal object is a list of
 Dimension objects. This will create an Signal object with an empty
 data array using the default data type. For example:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">Signal</span><span class="p">([</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">Signal</span><span class="p">([</span>
     <span class="n">CalculatedDimension</span><span class="p">(</span><span class="n">length</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">temporal</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Timebase.&#39;</span><span class="p">)</span>
     <span class="n">CalculatedDimension</span><span class="p">(</span><span class="n">length</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mf">2.8</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="n">temporal</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Radius.&#39;</span><span class="p">)</span>
 <span class="p">])</span>
@@ -1476,7 +1444,7 @@ supports UTF8 characters, as per the units string.</p>
 uncertainties on the signal data and dimension data. Note that this
 example is written with full verbosity, in practice real code will be 
 more compact:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">Signal</span><span class="p">(</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">Signal</span><span class="p">(</span>
     <span class="n">dimensions</span><span class="o">=</span><span class="p">[</span>
         <span class="n">CalculatedDimension</span><span class="p">(</span>
             <span class="n">length</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
@@ -1539,7 +1507,7 @@ more compact:</p>
 <dl class="attribute">
 <dt id="sal.dataclass.Signal.SUMMARY_CLASS">
 <code class="descname">SUMMARY_CLASS</code><a class="headerlink" href="#sal.dataclass.Signal.SUMMARY_CLASS" title="Permalink to this definition">¶</a></dt>
-<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">SignalSummary</span></code></p>
+<dd><p>alias of <a class="reference internal" href="#sal.dataclass.SignalSummary" title="sal.dataclass.SignalSummary"><code class="xref py py-class docutils literal notranslate"><span class="pre">SignalSummary</span></code></a></p>
 </dd></dl>
 
 <dl class="classmethod">
@@ -1689,7 +1657,51 @@ the dimensions as a numpy array.</p>
 <dl class="attribute">
 <dt id="sal.dataclass.CalculatedDimension.SUMMARY_CLASS">
 <code class="descname">SUMMARY_CLASS</code><a class="headerlink" href="#sal.dataclass.CalculatedDimension.SUMMARY_CLASS" title="Permalink to this definition">¶</a></dt>
-<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">CalculatedDimensionSummary</span></code></p>
+<dd><p>alias of <a class="reference internal" href="#sal.dataclass.CalculatedDimensionSummary" title="sal.dataclass.CalculatedDimensionSummary"><code class="xref py py-class docutils literal notranslate"><span class="pre">CalculatedDimensionSummary</span></code></a></p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="sal.dataclass.CalculatedDimension.from_dict">
+<em class="property">classmethod </em><code class="descname">from_dict</code><span class="sig-paren">(</span><em>d</em><span class="sig-paren">)</span><a class="headerlink" href="#sal.dataclass.CalculatedDimension.from_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instances the class from a dictionary representation.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>d</strong> – Dictionary containing a serialised object.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">An object instance.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="sal.dataclass.CalculatedDimension.summary">
+<code class="descname">summary</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sal.dataclass.CalculatedDimension.summary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a summary of the data object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A DataSummary object.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="sal.dataclass.CalculatedDimension.to_dict">
+<code class="descname">to_dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sal.dataclass.CalculatedDimension.to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a dictionary representation of the data object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A data object dictionary.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
@@ -1727,7 +1739,51 @@ True.</p>
 <dl class="attribute">
 <dt id="sal.dataclass.ArrayDimension.SUMMARY_CLASS">
 <code class="descname">SUMMARY_CLASS</code><a class="headerlink" href="#sal.dataclass.ArrayDimension.SUMMARY_CLASS" title="Permalink to this definition">¶</a></dt>
-<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">ArrayDimensionSummary</span></code></p>
+<dd><p>alias of <a class="reference internal" href="#sal.dataclass.ArrayDimensionSummary" title="sal.dataclass.ArrayDimensionSummary"><code class="xref py py-class docutils literal notranslate"><span class="pre">ArrayDimensionSummary</span></code></a></p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="sal.dataclass.ArrayDimension.from_dict">
+<em class="property">classmethod </em><code class="descname">from_dict</code><span class="sig-paren">(</span><em>d</em><span class="sig-paren">)</span><a class="headerlink" href="#sal.dataclass.ArrayDimension.from_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instances the class from a dictionary representation.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>d</strong> – Dictionary containing a serialised object.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">An object instance.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="sal.dataclass.ArrayDimension.summary">
+<code class="descname">summary</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sal.dataclass.ArrayDimension.summary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a summary of the data object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A DataSummary object.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="sal.dataclass.ArrayDimension.to_dict">
+<code class="descname">to_dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sal.dataclass.ArrayDimension.to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a dictionary representation of the data object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A data object dictionary.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
@@ -1809,7 +1865,67 @@ lower = 0.1 corresponds to a 10% relative error.</p>
 <dl class="attribute">
 <dt id="sal.dataclass.ConstantError.SUMMARY_CLASS">
 <code class="descname">SUMMARY_CLASS</code><a class="headerlink" href="#sal.dataclass.ConstantError.SUMMARY_CLASS" title="Permalink to this definition">¶</a></dt>
-<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">ConstantErrorSummary</span></code></p>
+<dd><p>alias of <a class="reference internal" href="#sal.dataclass.ConstantErrorSummary" title="sal.dataclass.ConstantErrorSummary"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConstantErrorSummary</span></code></a></p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="sal.dataclass.ConstantError.from_dict">
+<em class="property">classmethod </em><code class="descname">from_dict</code><span class="sig-paren">(</span><em>d</em><span class="sig-paren">)</span><a class="headerlink" href="#sal.dataclass.ConstantError.from_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instances the class from a dictionary representation.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>d</strong> – Dictionary containing a serialised object.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">An object instance.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="sal.dataclass.ConstantError.shape_compatible">
+<code class="descname">shape_compatible</code><span class="sig-paren">(</span><em>shape</em><span class="sig-paren">)</span><a class="headerlink" href="#sal.dataclass.ConstantError.shape_compatible" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks the error data dimensions are compatible.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>shape</strong> – A tuple containing array dimensions.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if compatible, False otherwise.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="sal.dataclass.ConstantError.summary">
+<code class="descname">summary</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sal.dataclass.ConstantError.summary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a summary of the data object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A DataSummary object.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="sal.dataclass.ConstantError.to_dict">
+<code class="descname">to_dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sal.dataclass.ConstantError.to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a dictionary representation of the data object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A data object dictionary.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
@@ -1843,7 +1959,67 @@ The permitted datatypes are identical to those listed for Signal.</p>
 <dl class="attribute">
 <dt id="sal.dataclass.SymmetricArrayError.SUMMARY_CLASS">
 <code class="descname">SUMMARY_CLASS</code><a class="headerlink" href="#sal.dataclass.SymmetricArrayError.SUMMARY_CLASS" title="Permalink to this definition">¶</a></dt>
-<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">SymmetricArrayErrorSummary</span></code></p>
+<dd><p>alias of <a class="reference internal" href="#sal.dataclass.SymmetricArrayErrorSummary" title="sal.dataclass.SymmetricArrayErrorSummary"><code class="xref py py-class docutils literal notranslate"><span class="pre">SymmetricArrayErrorSummary</span></code></a></p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="sal.dataclass.SymmetricArrayError.from_dict">
+<em class="property">classmethod </em><code class="descname">from_dict</code><span class="sig-paren">(</span><em>d</em><span class="sig-paren">)</span><a class="headerlink" href="#sal.dataclass.SymmetricArrayError.from_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instances the class from a dictionary representation.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>d</strong> – Dictionary containing a serialised object.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">An object instance.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="sal.dataclass.SymmetricArrayError.shape_compatible">
+<code class="descname">shape_compatible</code><span class="sig-paren">(</span><em>shape</em><span class="sig-paren">)</span><a class="headerlink" href="#sal.dataclass.SymmetricArrayError.shape_compatible" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks the error data dimensions are compatible.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>shape</strong> – A tuple containing array dimensions.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if compatible, False otherwise.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="sal.dataclass.SymmetricArrayError.summary">
+<code class="descname">summary</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sal.dataclass.SymmetricArrayError.summary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a summary of the data object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A DataSummary object.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="sal.dataclass.SymmetricArrayError.to_dict">
+<code class="descname">to_dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sal.dataclass.SymmetricArrayError.to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a dictionary representation of the data object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A data object dictionary.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
@@ -1879,7 +2055,67 @@ The permitted datatypes are identical to those listed for Signal.</p>
 <dl class="attribute">
 <dt id="sal.dataclass.AsymmetricArrayError.SUMMARY_CLASS">
 <code class="descname">SUMMARY_CLASS</code><a class="headerlink" href="#sal.dataclass.AsymmetricArrayError.SUMMARY_CLASS" title="Permalink to this definition">¶</a></dt>
-<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">AsymmetricArrayErrorSummary</span></code></p>
+<dd><p>alias of <a class="reference internal" href="#sal.dataclass.AsymmetricArrayErrorSummary" title="sal.dataclass.AsymmetricArrayErrorSummary"><code class="xref py py-class docutils literal notranslate"><span class="pre">AsymmetricArrayErrorSummary</span></code></a></p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="sal.dataclass.AsymmetricArrayError.from_dict">
+<em class="property">classmethod </em><code class="descname">from_dict</code><span class="sig-paren">(</span><em>d</em><span class="sig-paren">)</span><a class="headerlink" href="#sal.dataclass.AsymmetricArrayError.from_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instances the class from a dictionary representation.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>d</strong> – Dictionary containing a serialised object.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">An object instance.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="sal.dataclass.AsymmetricArrayError.shape_compatible">
+<code class="descname">shape_compatible</code><span class="sig-paren">(</span><em>shape</em><span class="sig-paren">)</span><a class="headerlink" href="#sal.dataclass.AsymmetricArrayError.shape_compatible" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks the error data dimensions are compatible.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>shape</strong> – A tuple containing array dimensions.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if compatible, False otherwise.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="sal.dataclass.AsymmetricArrayError.summary">
+<code class="descname">summary</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sal.dataclass.AsymmetricArrayError.summary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a summary of the data object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A DataSummary object.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="sal.dataclass.AsymmetricArrayError.to_dict">
+<code class="descname">to_dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sal.dataclass.AsymmetricArrayError.to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a dictionary representation of the data object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A data object dictionary.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
@@ -1911,12 +2147,112 @@ The permitted datatypes are identical to those listed for Signal.</p>
 <dl class="class">
 <dt id="sal.dataclass.ScalarStatus">
 <em class="property">class </em><code class="descclassname">sal.dataclass.</code><code class="descname">ScalarStatus</code><span class="sig-paren">(</span><em>status</em>, <em>key</em>, <em>description=None</em><span class="sig-paren">)</span><a class="headerlink" href="#sal.dataclass.ScalarStatus" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="attribute">
+<dt id="sal.dataclass.ScalarStatus.SUMMARY_CLASS">
+<code class="descname">SUMMARY_CLASS</code><a class="headerlink" href="#sal.dataclass.ScalarStatus.SUMMARY_CLASS" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#sal.dataclass.ScalarStatusSummary" title="sal.dataclass.ScalarStatusSummary"><code class="xref py py-class docutils literal notranslate"><span class="pre">ScalarStatusSummary</span></code></a></p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="sal.dataclass.ScalarStatus.from_dict">
+<em class="property">classmethod </em><code class="descname">from_dict</code><span class="sig-paren">(</span><em>d</em><span class="sig-paren">)</span><a class="headerlink" href="#sal.dataclass.ScalarStatus.from_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instances the class from a dictionary representation.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>d</strong> – Dictionary containing a serialised object.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">An object instance.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="sal.dataclass.ScalarStatus.summary">
+<code class="descname">summary</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sal.dataclass.ScalarStatus.summary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a summary of the data object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A DataSummary object.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="sal.dataclass.ScalarStatus.to_dict">
+<code class="descname">to_dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sal.dataclass.ScalarStatus.to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a dictionary representation of the data object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A data object dictionary.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
 
 <dl class="class">
 <dt id="sal.dataclass.ArrayStatus">
 <em class="property">class </em><code class="descclassname">sal.dataclass.</code><code class="descname">ArrayStatus</code><span class="sig-paren">(</span><em>status</em>, <em>key</em>, <em>description=None</em><span class="sig-paren">)</span><a class="headerlink" href="#sal.dataclass.ArrayStatus" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="attribute">
+<dt id="sal.dataclass.ArrayStatus.SUMMARY_CLASS">
+<code class="descname">SUMMARY_CLASS</code><a class="headerlink" href="#sal.dataclass.ArrayStatus.SUMMARY_CLASS" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#sal.dataclass.ArrayStatusSummary" title="sal.dataclass.ArrayStatusSummary"><code class="xref py py-class docutils literal notranslate"><span class="pre">ArrayStatusSummary</span></code></a></p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="sal.dataclass.ArrayStatus.from_dict">
+<em class="property">classmethod </em><code class="descname">from_dict</code><span class="sig-paren">(</span><em>d</em><span class="sig-paren">)</span><a class="headerlink" href="#sal.dataclass.ArrayStatus.from_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instances the class from a dictionary representation.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>d</strong> – Dictionary containing a serialised object.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">An object instance.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="sal.dataclass.ArrayStatus.summary">
+<code class="descname">summary</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sal.dataclass.ArrayStatus.summary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a summary of the data object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A DataSummary object.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="sal.dataclass.ArrayStatus.to_dict">
+<code class="descname">to_dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sal.dataclass.ArrayStatus.to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a dictionary representation of the data object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A data object dictionary.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
 
 <p><strong>Summary Objects:</strong></p>
 <dl class="class">
@@ -1936,9 +2272,7 @@ The permitted datatypes are identical to those listed for Signal.</p>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -1947,7 +2281,7 @@ The permitted datatypes are identical to those listed for Signal.</p>
         <a href="c.html" class="btn btn-neutral float-right" title="C Client" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../clients.html" class="btn btn-neutral" title="Clients" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../clients.html" class="btn btn-neutral float-left" title="Clients" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -1956,11 +2290,11 @@ The permitted datatypes are identical to those listed for Signal.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2017, Dr Alex Meakins.
+        &copy; Copyright 2018, European Atomic Energy Community (EURATOM)
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -1973,37 +2307,15 @@ The permitted datatypes are identical to those listed for Signal.</p>
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'1.2.2',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
-
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
+
+  
+  
+    
    
 
 </body>

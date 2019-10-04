@@ -17,43 +17,46 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'1.2.2',
+              LANGUAGE:'None',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Index"
-              href="../genindex.html"/>
-        <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Simple Access Layer (SAL) 1.2.2 documentation" href="../index.html"/>
-        <link rel="up" title="Data Model" href="../datamodel.html"/>
-        <link rel="next" title="Data Classes" href="dataclasses.html"/>
-        <link rel="prev" title="Data Model" href="../datamodel.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Data Classes" href="dataclasses.html" />
+    <link rel="prev" title="Data Model" href="../datamodel.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -141,7 +144,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Simple Access Layer (SAL)</a>
@@ -149,9 +152,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -213,7 +217,7 @@
 <div class="section" id="naming">
 <h3>Naming<a class="headerlink" href="#naming" title="Permalink to this headline">¶</a></h3>
 <p>All nodes have a string name. Node names must consist of only the following characters:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">abcdefghijklmnopqrstuvwxyz0123456789</span><span class="o">-</span><span class="n">_</span><span class="o">.</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">abcdefghijklmnopqrstuvwxyz0123456789</span><span class="o">-</span><span class="n">_</span><span class="o">.</span>
 </pre></div>
 </div>
 <p>To simplify user interaction, the SAL interface is case-insensitive. Upper-case characters are transparently converted to lower-case by the user facing APIs.</p>
@@ -221,7 +225,7 @@
 <div class="section" id="revisions">
 <span id="data-model-revisions"></span><h3>Revisions<a class="headerlink" href="#revisions" title="Permalink to this headline">¶</a></h3>
 <p>The SAL data model supports the concept of data revisions. Revisioned nodes/trees maintain their entire history of writes and modifications.</p>
-<p>The revision system is modelled on the design of the Subversion version control system. Each revision of the data written to a node is referred to by a revision number. The revision number is an integer that increases as newer data is written. The latest data or <code class="docutils literal"><span class="pre">head</span></code> revision of a node is therefore the revision with the highest number. The earliest revision number in the system is 1. Revision 0 is a special revision that always points to the head revision of the node (see <a class="reference internal" href="#data-model-pathing"><span class="std std-ref">Pathing</span></a>).</p>
+<p>The revision system is modelled on the design of the Subversion version control system. Each revision of the data written to a node is referred to by a revision number. The revision number is an integer that increases as newer data is written. The latest data or <code class="docutils literal notranslate"><span class="pre">head</span></code> revision of a node is therefore the revision with the highest number. The earliest revision number in the system is 1. Revision 0 is a special revision that always points to the head revision of the node (see <a class="reference internal" href="#data-model-pathing"><span class="std std-ref">Pathing</span></a>).</p>
 <p>The SAL data model does not prescribe a specific revision system. It is up to the persistence layer implementation how node revisions are handled. The only requirement is that the revision number of an individual node increases as new data is written to the node. This increase does not need to be consecutive.</p>
 <p>Persistence layers may implement:</p>
 <ul class="simple">
@@ -261,21 +265,21 @@
 <div class="section" id="pathing">
 <span id="data-model-pathing"></span><h2>Pathing<a class="headerlink" href="#pathing" title="Permalink to this headline">¶</a></h2>
 <p>The location of a branch or leaf node in the data-tree is specified using a POSIX filesystem-like path. A path starts with a forward slash, followed by a list of the branch names from the root of the tree to the required node (in order of navigation) separated by forward slashes. An absolute path consisting of a single forward slash refers to the tree root. A typical path for data would look as follows:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">pulse</span><span class="o">/</span><span class="mi">87737</span><span class="o">/</span><span class="n">ppf</span><span class="o">/</span><span class="n">signal</span><span class="o">/</span><span class="n">jetppf</span><span class="o">/</span><span class="n">magn</span><span class="o">/</span><span class="n">ipla</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">pulse</span><span class="o">/</span><span class="mi">87737</span><span class="o">/</span><span class="n">ppf</span><span class="o">/</span><span class="n">signal</span><span class="o">/</span><span class="n">jetppf</span><span class="o">/</span><span class="n">magn</span><span class="o">/</span><span class="n">ipla</span>
 </pre></div>
 </div>
 <p>Each node in the data-tree can have multiple revisions, by default only the most recent or head revision is visible. To obtain a specific node revision, a colon followed by the revision number are appended to the node path. For instance:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">pulse</span><span class="o">/</span><span class="mi">87737</span><span class="o">/</span><span class="n">ppf</span><span class="o">/</span><span class="n">signal</span><span class="o">/</span><span class="n">jetppf</span><span class="o">/</span><span class="n">magn</span><span class="o">/</span><span class="n">ipla</span><span class="p">:</span><span class="mi">23</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">pulse</span><span class="o">/</span><span class="mi">87737</span><span class="o">/</span><span class="n">ppf</span><span class="o">/</span><span class="n">signal</span><span class="o">/</span><span class="n">jetppf</span><span class="o">/</span><span class="n">magn</span><span class="o">/</span><span class="n">ipla</span><span class="p">:</span><span class="mi">23</span>
 </pre></div>
 </div>
-<p>This path points to revision 23 of the <code class="docutils literal"><span class="pre">ipla</span></code> leaf node. For users that desire to be explicit about specifying the head revision, this can be referred to using either <code class="docutils literal"><span class="pre">&lt;path&gt;:0</span></code> or <code class="docutils literal"><span class="pre">&lt;path&gt;:head</span></code>.</p>
+<p>This path points to revision 23 of the <code class="docutils literal notranslate"><span class="pre">ipla</span></code> leaf node. For users that desire to be explicit about specifying the head revision, this can be referred to using either <code class="docutils literal notranslate"><span class="pre">&lt;path&gt;:0</span></code> or <code class="docutils literal notranslate"><span class="pre">&lt;path&gt;:head</span></code>.</p>
 </div>
 <div class="section" id="data-classes">
 <span id="data-model-data-classes"></span><h2>Data Classes<a class="headerlink" href="#data-classes" title="Permalink to this headline">¶</a></h2>
 <p>The data stored on leaf nodes are known as data objects. These are discrete bundles of data conforming to one of a number of pre-defined structures known as data classes. Each leaf node contains a single data object. Users can request either the full data object or a reduced summary object that contains only the meta-data.</p>
 <p>Data classes are intended to represent a particular type of data, such as time traces, camera images or 3D meshes. Data classes are validated server side to ensure consistency of the data. See <a class="reference internal" href="dataclasses.html#data-classes"><span class="std std-ref">Data Classes</span></a> for the concrete definition of the data classes provided by SAL.</p>
 <p>A data object is a tree structure consisting of branch and leaf nodes, much like the data tree. The leave nodes are values of atomic types or containers of values that are representable in all modern programing languages. Each node is named and follows the same conventions as the data tree, names are limited to the following characters:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">abcdefghijklmnopqrstuvwxyz0123456789</span><span class="o">-</span><span class="n">_</span><span class="o">.</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">abcdefghijklmnopqrstuvwxyz0123456789</span><span class="o">-</span><span class="n">_</span><span class="o">.</span>
 </pre></div>
 </div>
 <p>A set of names are reserved for use by the SAL system (see <a class="reference internal" href="#data-model-common-structure"><span class="std std-ref">Common Structure</span></a>)</p>
@@ -284,27 +288,27 @@
 <p>All data class structures are built from the following basic types.</p>
 <p><strong>Atomic</strong></p>
 <ul class="simple">
-<li>Signed integer: <code class="docutils literal"><span class="pre">int8</span></code>, <code class="docutils literal"><span class="pre">int16</span></code>, <code class="docutils literal"><span class="pre">int32</span></code>, <code class="docutils literal"><span class="pre">int64</span></code></li>
-<li>Unsigned integer: <code class="docutils literal"><span class="pre">uint8</span></code>, <code class="docutils literal"><span class="pre">uint16</span></code>, <code class="docutils literal"><span class="pre">uint32</span></code>, <code class="docutils literal"><span class="pre">uint64</span></code></li>
-<li>Floating point: <code class="docutils literal"><span class="pre">fp32</span></code>, <code class="docutils literal"><span class="pre">fp64</span></code></li>
-<li>Boolean: <code class="docutils literal"><span class="pre">bool</span></code></li>
-<li>String: <code class="docutils literal"><span class="pre">string</span></code></li>
+<li>Signed integer: <code class="docutils literal notranslate"><span class="pre">int8</span></code>, <code class="docutils literal notranslate"><span class="pre">int16</span></code>, <code class="docutils literal notranslate"><span class="pre">int32</span></code>, <code class="docutils literal notranslate"><span class="pre">int64</span></code></li>
+<li>Unsigned integer: <code class="docutils literal notranslate"><span class="pre">uint8</span></code>, <code class="docutils literal notranslate"><span class="pre">uint16</span></code>, <code class="docutils literal notranslate"><span class="pre">uint32</span></code>, <code class="docutils literal notranslate"><span class="pre">uint64</span></code></li>
+<li>Floating point: <code class="docutils literal notranslate"><span class="pre">fp32</span></code>, <code class="docutils literal notranslate"><span class="pre">fp64</span></code></li>
+<li>Boolean: <code class="docutils literal notranslate"><span class="pre">bool</span></code></li>
+<li>String: <code class="docutils literal notranslate"><span class="pre">string</span></code></li>
 </ul>
 <p>Strings are encoded as UTF8.</p>
 <p><strong>Container</strong></p>
 <ul class="simple">
-<li>N dimensional array: <code class="docutils literal"><span class="pre">array&lt;TYPE&gt;</span></code></li>
+<li>N dimensional array: <code class="docutils literal notranslate"><span class="pre">array&lt;TYPE&gt;</span></code></li>
 </ul>
 <p>Where array type is any one of the atomic types.</p>
 <ul class="simple">
-<li>Branch: <code class="docutils literal"><span class="pre">branch</span></code> / <code class="docutils literal"><span class="pre">{}</span></code></li>
+<li>Branch: <code class="docutils literal notranslate"><span class="pre">branch</span></code> / <code class="docutils literal notranslate"><span class="pre">{}</span></code></li>
 </ul>
 <p>The branch type is equivalent to a Python dictionary with string keys.</p>
 <p><strong>Special</strong></p>
 <ul class="simple">
-<li><code class="docutils literal"><span class="pre">null</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">null</span></code></li>
 </ul>
-<p>When an attribute is labelled as optional, <code class="docutils literal"><span class="pre">null</span></code> is used inplace of missing content.</p>
+<p>When an attribute is labelled as optional, <code class="docutils literal notranslate"><span class="pre">null</span></code> is used inplace of missing content.</p>
 </div>
 <div class="section" id="representations">
 <h3>Representations<a class="headerlink" href="#representations" title="Permalink to this headline">¶</a></h3>
@@ -316,34 +320,34 @@
 <h3>Notation<a class="headerlink" href="#notation" title="Permalink to this headline">¶</a></h3>
 <p>To define data classes in this document we use the following notation.</p>
 <p>Objects:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>object: {
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>object: {
     $CONTENTS
 }
 </pre></div>
 </div>
 <p>Branches:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>$NAME: {
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$NAME: {
     $CONTENTS
 }
 </pre></div>
 </div>
 <p>Atomic types:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>$NAME: $TYPE = $CONTENTS
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$NAME: $TYPE = $CONTENTS
 </pre></div>
 </div>
 <p>Arrays:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>$NAME: array&lt;$TYPE&gt; = $CONTENTS
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$NAME: array&lt;$TYPE&gt; = $CONTENTS
 </pre></div>
 </div>
 <p>An attribute that is considered optional is enclosed with square brackets:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>[$NAME: $TYPE = $CONTENT]
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[$NAME: $TYPE = $CONTENT]
 </pre></div>
 </div>
 </div>
 <div class="section" id="common-structure">
 <span id="data-model-common-structure"></span><h3>Common Structure<a class="headerlink" href="#common-structure" title="Permalink to this headline">¶</a></h3>
 <p>Both the full object and the summary objects share a common structure around which the data class is defined. This structure defines a class name, a group the class belongs to, whether the object is a full or summary object, its version, and finally a text description string:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>object: {
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>object: {
     _class: string = $CLASS_NAME
     _group: string = $GROUP_NAME
     _type: string = $OBJECT_TYPE
@@ -441,9 +445,7 @@
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -452,7 +454,7 @@
         <a href="dataclasses.html" class="btn btn-neutral float-right" title="Data Classes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../datamodel.html" class="btn btn-neutral" title="Data Model" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../datamodel.html" class="btn btn-neutral float-left" title="Data Model" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -461,11 +463,11 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2017, Dr Alex Meakins.
+        &copy; Copyright 2018, European Atomic Energy Community (EURATOM)
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -478,37 +480,15 @@
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'1.2.2',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
-
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
+
+  
+  
+    
    
 
 </body>

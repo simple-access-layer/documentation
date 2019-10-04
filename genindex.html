@@ -18,40 +18,44 @@
   
 
   
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'./',
+              VERSION:'1.2.2',
+              LANGUAGE:'None',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
-  
-  
-    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Index"
-              href="#"/>
-        <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="Simple Access Layer (SAL) 1.2.2 documentation" href="index.html"/> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="#" />
+    <link rel="search" title="Search" href="search.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -104,7 +108,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">Simple Access Layer (SAL)</a>
@@ -112,9 +116,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -260,24 +265,10 @@
         <li><a href="server/development.html#sal.server.interface.PersistenceProvider.delete">(sal.server.interface.PersistenceProvider method)</a>
 </li>
       </ul></li>
-      <li><a href="client/python.html#sal.core.object.Branch.description">description (sal.core.object.Branch attribute)</a>
-
-      <ul>
-        <li><a href="client/python.html#sal.dataclass.Dictionary.description">(sal.dataclass.Dictionary attribute)</a>
-</li>
-        <li><a href="client/python.html#sal.dataclass.DictionarySummary.description">(sal.dataclass.DictionarySummary attribute)</a>
-</li>
-        <li><a href="client/python.html#sal.dataclass.Scalar.description">(sal.dataclass.Scalar attribute)</a>
-</li>
-        <li><a href="client/python.html#sal.dataclass.ScalarSummary.description">(sal.dataclass.ScalarSummary attribute)</a>
-</li>
-        <li><a href="client/python.html#sal.dataclass.String.description">(sal.dataclass.String attribute)</a>
-</li>
-        <li><a href="client/python.html#sal.dataclass.StringSummary.description">(sal.dataclass.StringSummary attribute)</a>
-</li>
-      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="client/python.html#sal.core.object.Branch.description">description (sal.core.object.Branch attribute)</a>
+</li>
       <li><a href="client/python.html#sal.dataclass.Dictionary">Dictionary (class in sal.dataclass)</a>
 </li>
       <li><a href="client/python.html#sal.dataclass.DictionarySummary">DictionarySummary (class in sal.dataclass)</a>
@@ -291,19 +282,31 @@
       <li><a href="client/python.html#sal.core.object.Branch.from_dict">from_dict() (sal.core.object.Branch class method)</a>
 
       <ul>
-        <li><a href="client/python.html#sal.core.object.DataObject.from_dict">(sal.core.object.DataObject method)</a>
+        <li><a href="client/python.html#sal.core.object.DataObject.from_dict">(sal.core.object.DataObject class method)</a>
 </li>
-        <li><a href="client/python.html#sal.core.object.DataSummary.from_dict">(sal.core.object.DataSummary method)</a>
+        <li><a href="client/python.html#sal.core.object.DataSummary.from_dict">(sal.core.object.DataSummary class method)</a>
 </li>
         <li><a href="client/python.html#sal.dataclass.Array.from_dict">(sal.dataclass.Array class method)</a>
 </li>
+        <li><a href="client/python.html#sal.dataclass.ArrayDimension.from_dict">(sal.dataclass.ArrayDimension class method)</a>
+</li>
+        <li><a href="client/python.html#sal.dataclass.ArrayStatus.from_dict">(sal.dataclass.ArrayStatus class method)</a>
+</li>
         <li><a href="client/python.html#sal.dataclass.ArraySummary.from_dict">(sal.dataclass.ArraySummary class method)</a>
+</li>
+        <li><a href="client/python.html#sal.dataclass.AsymmetricArrayError.from_dict">(sal.dataclass.AsymmetricArrayError class method)</a>
+</li>
+        <li><a href="client/python.html#sal.dataclass.CalculatedDimension.from_dict">(sal.dataclass.CalculatedDimension class method)</a>
+</li>
+        <li><a href="client/python.html#sal.dataclass.ConstantError.from_dict">(sal.dataclass.ConstantError class method)</a>
 </li>
         <li><a href="client/python.html#sal.dataclass.Dictionary.from_dict">(sal.dataclass.Dictionary class method)</a>
 </li>
         <li><a href="client/python.html#sal.dataclass.DictionarySummary.from_dict">(sal.dataclass.DictionarySummary class method)</a>
 </li>
         <li><a href="client/python.html#sal.dataclass.Scalar.from_dict">(sal.dataclass.Scalar class method)</a>
+</li>
+        <li><a href="client/python.html#sal.dataclass.ScalarStatus.from_dict">(sal.dataclass.ScalarStatus class method)</a>
 </li>
         <li><a href="client/python.html#sal.dataclass.ScalarSummary.from_dict">(sal.dataclass.ScalarSummary class method)</a>
 </li>
@@ -314,6 +317,8 @@
         <li><a href="client/python.html#sal.dataclass.String.from_dict">(sal.dataclass.String class method)</a>
 </li>
         <li><a href="client/python.html#sal.dataclass.StringSummary.from_dict">(sal.dataclass.StringSummary class method)</a>
+</li>
+        <li><a href="client/python.html#sal.dataclass.SymmetricArrayError.from_dict">(sal.dataclass.SymmetricArrayError class method)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -420,6 +425,14 @@
 </li>
       <li><a href="client/python.html#sal.dataclass.ScalarSummary">ScalarSummary (class in sal.dataclass)</a>
 </li>
+      <li><a href="client/python.html#sal.dataclass.AsymmetricArrayError.shape_compatible">shape_compatible() (sal.dataclass.AsymmetricArrayError method)</a>
+
+      <ul>
+        <li><a href="client/python.html#sal.dataclass.ConstantError.shape_compatible">(sal.dataclass.ConstantError method)</a>
+</li>
+        <li><a href="client/python.html#sal.dataclass.SymmetricArrayError.shape_compatible">(sal.dataclass.SymmetricArrayError method)</a>
+</li>
+      </ul></li>
       <li><a href="client/python.html#sal.dataclass.Signal">Signal (class in sal.dataclass)</a>
 </li>
       <li><a href="client/python.html#sal.dataclass.SignalSummary">SignalSummary (class in sal.dataclass)</a>
@@ -433,13 +446,27 @@
       <ul>
         <li><a href="client/python.html#sal.dataclass.Array.summary">(sal.dataclass.Array method)</a>
 </li>
+        <li><a href="client/python.html#sal.dataclass.ArrayDimension.summary">(sal.dataclass.ArrayDimension method)</a>
+</li>
+        <li><a href="client/python.html#sal.dataclass.ArrayStatus.summary">(sal.dataclass.ArrayStatus method)</a>
+</li>
+        <li><a href="client/python.html#sal.dataclass.AsymmetricArrayError.summary">(sal.dataclass.AsymmetricArrayError method)</a>
+</li>
+        <li><a href="client/python.html#sal.dataclass.CalculatedDimension.summary">(sal.dataclass.CalculatedDimension method)</a>
+</li>
+        <li><a href="client/python.html#sal.dataclass.ConstantError.summary">(sal.dataclass.ConstantError method)</a>
+</li>
         <li><a href="client/python.html#sal.dataclass.Dictionary.summary">(sal.dataclass.Dictionary method)</a>
 </li>
         <li><a href="client/python.html#sal.dataclass.Scalar.summary">(sal.dataclass.Scalar method)</a>
 </li>
+        <li><a href="client/python.html#sal.dataclass.ScalarStatus.summary">(sal.dataclass.ScalarStatus method)</a>
+</li>
         <li><a href="client/python.html#sal.dataclass.Signal.summary">(sal.dataclass.Signal method)</a>
 </li>
         <li><a href="client/python.html#sal.dataclass.String.summary">(sal.dataclass.String method)</a>
+</li>
+        <li><a href="client/python.html#sal.dataclass.SymmetricArrayError.summary">(sal.dataclass.SymmetricArrayError method)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -451,6 +478,8 @@
 </li>
         <li><a href="client/python.html#sal.dataclass.ArrayDimension.SUMMARY_CLASS">(sal.dataclass.ArrayDimension attribute)</a>
 </li>
+        <li><a href="client/python.html#sal.dataclass.ArrayStatus.SUMMARY_CLASS">(sal.dataclass.ArrayStatus attribute)</a>
+</li>
         <li><a href="client/python.html#sal.dataclass.AsymmetricArrayError.SUMMARY_CLASS">(sal.dataclass.AsymmetricArrayError attribute)</a>
 </li>
         <li><a href="client/python.html#sal.dataclass.CalculatedDimension.SUMMARY_CLASS">(sal.dataclass.CalculatedDimension attribute)</a>
@@ -460,6 +489,8 @@
         <li><a href="client/python.html#sal.dataclass.Dictionary.SUMMARY_CLASS">(sal.dataclass.Dictionary attribute)</a>
 </li>
         <li><a href="client/python.html#sal.dataclass.Scalar.SUMMARY_CLASS">(sal.dataclass.Scalar attribute)</a>
+</li>
+        <li><a href="client/python.html#sal.dataclass.ScalarStatus.SUMMARY_CLASS">(sal.dataclass.ScalarStatus attribute)</a>
 </li>
         <li><a href="client/python.html#sal.dataclass.Signal.SUMMARY_CLASS">(sal.dataclass.Signal attribute)</a>
 </li>
@@ -491,13 +522,25 @@
 </li>
         <li><a href="client/python.html#sal.dataclass.Array.to_dict">(sal.dataclass.Array method)</a>
 </li>
+        <li><a href="client/python.html#sal.dataclass.ArrayDimension.to_dict">(sal.dataclass.ArrayDimension method)</a>
+</li>
+        <li><a href="client/python.html#sal.dataclass.ArrayStatus.to_dict">(sal.dataclass.ArrayStatus method)</a>
+</li>
         <li><a href="client/python.html#sal.dataclass.ArraySummary.to_dict">(sal.dataclass.ArraySummary method)</a>
+</li>
+        <li><a href="client/python.html#sal.dataclass.AsymmetricArrayError.to_dict">(sal.dataclass.AsymmetricArrayError method)</a>
+</li>
+        <li><a href="client/python.html#sal.dataclass.CalculatedDimension.to_dict">(sal.dataclass.CalculatedDimension method)</a>
+</li>
+        <li><a href="client/python.html#sal.dataclass.ConstantError.to_dict">(sal.dataclass.ConstantError method)</a>
 </li>
         <li><a href="client/python.html#sal.dataclass.Dictionary.to_dict">(sal.dataclass.Dictionary method)</a>
 </li>
         <li><a href="client/python.html#sal.dataclass.DictionarySummary.to_dict">(sal.dataclass.DictionarySummary method)</a>
 </li>
         <li><a href="client/python.html#sal.dataclass.Scalar.to_dict">(sal.dataclass.Scalar method)</a>
+</li>
+        <li><a href="client/python.html#sal.dataclass.ScalarStatus.to_dict">(sal.dataclass.ScalarStatus method)</a>
 </li>
         <li><a href="client/python.html#sal.dataclass.ScalarSummary.to_dict">(sal.dataclass.ScalarSummary method)</a>
 </li>
@@ -508,6 +551,8 @@
         <li><a href="client/python.html#sal.dataclass.String.to_dict">(sal.dataclass.String method)</a>
 </li>
         <li><a href="client/python.html#sal.dataclass.StringSummary.to_dict">(sal.dataclass.StringSummary method)</a>
+</li>
+        <li><a href="client/python.html#sal.dataclass.SymmetricArrayError.to_dict">(sal.dataclass.SymmetricArrayError method)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -538,9 +583,7 @@
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -549,11 +592,11 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2017, Dr Alex Meakins.
+        &copy; Copyright 2018, European Atomic Energy Community (EURATOM)
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -566,37 +609,15 @@
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'./',
-            VERSION:'1.2.2',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="_static/jquery.js"></script>
-      <script type="text/javascript" src="_static/underscore.js"></script>
-      <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-  
-
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
+
+  
+  
+    
    
 
 </body>
